@@ -55,7 +55,7 @@ function postData(event) {
 
   console.log("Initiating POST request with URL:", urlInput);
 
-  fetch("http://localhost:5500/proxy/cleanuri", {
+  fetch("https://link-shortener-app-git-backend-jaedevgithub.vercel.app/proxy/cleanuri", {
     // Cambia el puerto si es necesario
     method: "POST", // Asegúrate de utilizar el método POST
     headers: {
