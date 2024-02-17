@@ -6,8 +6,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+
+
 body {
-  height: 100vh;
+  height: 100%;
   margin: 0;
   background-image: url("./assets/background.jpg");
   background-size: cover;
@@ -17,6 +19,21 @@ body {
 
 input {
   outline: none;
+}
+
+ul {
+  margin-right: 1rem;
+}
+
+li {
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.header__button-ul {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
 }
 
 .shortener__container {
