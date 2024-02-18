@@ -8,6 +8,7 @@ import {
 import { setupLinks } from "./app/linksDatabase.js";
 import { loginCheck } from "./app/loginCheck.js";
 
+
 import "./app/signupForm.js";
 import "./app/signinForm.js";
 import "./app/logout.js";
@@ -15,11 +16,12 @@ import "./app/googleLogin.js";
 
 onAuthStateChanged(auth, async (user) => {
   if (user) {
-    const querySnapshot = await getDocs(collection(db, "post"));
+    const querySnapshot = await getDocs(collection(db, "usersLinks"));
     setupLinks(querySnapshot.docs);
   } else {
     setupLinks([])
   }
   loginCheck(user);
+
 });
 initializeLinkShortener();
