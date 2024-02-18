@@ -1,6 +1,7 @@
 import { auth, db } from "./app/firebase.js";
 import { initializeLinkShortener } from "./app/linkShortener.js";
-import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
 import {
   getDocs,
   collection,

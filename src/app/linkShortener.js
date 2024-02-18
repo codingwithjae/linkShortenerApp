@@ -1,7 +1,13 @@
 import { showMessage } from "./showMessage.js";
-import { addDoc, collection, getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-
+import {
+  addDoc,
+  collection,
+  getFirestore,
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import {
+  getAuth,
+  onAuthStateChanged,
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
 export function initializeLinkShortener() {
   const db = getFirestore();
@@ -20,7 +26,10 @@ export function initializeLinkShortener() {
   // Verificar el estado de autenticación del usuario
   onAuthStateChanged(auth, (user) => {
     if (!user) {
-      showMessage("You can shorten links, but they won't be saved. Please sign in to save them.", "warning");
+      showMessage(
+        "You can shorten links, but they won't be saved. Please sign in to save them.",
+        "warning"
+      );
     }
   });
 
@@ -48,7 +57,10 @@ export function initializeLinkShortener() {
     const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
 
     if (!urlPattern.test(urlInput)) {
-      errorMessage.textContent = showMessage("Please enter a valid URL", "error");
+      errorMessage.textContent = showMessage(
+        "Please enter a valid URL",
+        "error"
+      );
 
       buttonClicked = true;
       return;
@@ -85,7 +97,7 @@ export function initializeLinkShortener() {
           console.log("Short link", data.result_url);
           // Muestra el enlace acortado al usuario
           showMessage(`Link created successfully: ${data.result_url}`);
-          inputElement.value = '';  // Limpiar el campo de entrada después de mostrar el enlace
+          inputElement.value = ""; // Limpiar el campo de entrada después de mostrar el enlace
           // Crear un objeto con los datos a almacenar en Firestore
           const linkData = {
             userId: user.uid,
@@ -124,7 +136,7 @@ export function initializeLinkShortener() {
         .then((data) => {
           console.log("Short link (not saved)", data.result_url);
           showMessage(`Link created successfully`);
-          inputElement.value = '';  // Limpiar el campo de entrada después de mostrar el enlace
+          inputElement.value = data.result_url; // Limpiar el campo de entrada después de mostrar el enlace
         })
         .catch((error) => {
           console.error("Error:", error);
