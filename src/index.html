@@ -28,16 +28,21 @@
       rel="stylesheet"
     />
     <script defer src="main.js" type="module"></script>
+    <script
+      src="https://kit.fontawesome.com/41e92b9e7c.js"
+      crossorigin="anonymous"
+    ></script>
+
     <link rel="stylesheet" type="text/css" href="main.css" />
 
     <title>Scissor Sharp</title>
   </head>
   <body>
     <header>
-      <ul class="header__button-ul">
+      <ul class="header__navbar-ul">
         <li>
           <button
-            class="logged-out text-white bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            class="header__logged-out-buttons text-white bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             type="button"
             data-modal-toggle="signinModal"
           >
@@ -47,7 +52,7 @@
 
         <li>
           <button
-            class="logged-out block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            class="header__logged-out-buttons text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             type="button"
             data-modal-toggle="signup-modal"
           >
@@ -56,7 +61,16 @@
         </li>
         <li>
           <button
-            class="logged-in nblock text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            class="header__dashboard-button nblock text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            type="button"
+            id="log-out"
+          >
+            Dashboard
+          </button>
+        </li>
+        <li>
+          <button
+            class="logged-in block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             type="button"
             id="log-out"
           >
@@ -64,6 +78,23 @@
           </button>
         </li>
       </ul>
+
+         <!-- Dashboard modal-->
+      <section
+        class="dashboard fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-40 hidden align-content-center"
+      >
+     
+        <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-gray-800 rounded-lg shadow-lg sm:w-42 lg:w-96">
+          <button class="dashboard__close-button absolute flex flex-end top-2 right-3" aria-label="Close">
+            <i class="fa-solid fa-times text-white"></i>
+          </button>
+          <div class="dashboard__ul-container flex align-content-center flex-col items-center justify-center p-8 shadow">
+            <h2 class="text-3xl font-semibold text-white mb-8">Dashboard</h2>
+            <div class="dashboard__links-list"></div>
+          </div>
+          
+        </section>
+        
     </header>
 
     <!-- Modal toggle button -->
@@ -72,7 +103,7 @@
     <div
       id="signup-modal"
       aria-hidden="true"
-      class="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center"
+      class="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center z-10"
     >
       <div class="relative w-full max-w-md px-4 h-full md:h-auto">
         <!-- Modal content -->
@@ -161,7 +192,7 @@
       </div>
     </div>
 
-    <div class="links"></div>
+  
     <!-- signinModal modal -->
     <div
       id="signinModal"
@@ -247,17 +278,10 @@
     <!-- Dashboard modal -->
 
     <main class="shortener">
-      <div class="h-0 flex items-center justify-center relative top-28 mt-24 mb-24">
-        <div class="w-full md:w-1/2 p-8  bg-gray-800 rounded-lg shadow-md">
-          <h2 class="text-3xl font-semibold mb-6 text-white">Dashboard</h2>
-          <ul class="list-group links"></ul>
-        </div>
-      </div>
-
       <section class="shortener__container">
         <form class="shortener__form" novalidate="novalidate">
           <div class="shortener__input--container">
-            <div>
+            <div class="shortener__input--container-icon">
               <input
                 name="url"
                 class="shortener__form--url"
@@ -269,6 +293,10 @@
                 required="required"
                 placeholder="Enter a link to be shortened"
               />
+              <div class="shortener__form--icon" title="Copy link">
+                <!-- Usa el ícono de copiar de tu elección -->
+                <i class="fas fa-copy"></i>
+              </div>
             </div>
             <div class="shortener__button--container">
               <button

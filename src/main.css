@@ -21,6 +21,26 @@ input {
   outline: none;
 }
 
+.shortener__input--container-icon {
+  position: relative;
+  display: flex;
+  align-items: center; /* Centra verticalmente los elementos en el contenedor */
+}
+
+.shortener__form--url {
+  flex: 1; /* Hace que el input ocupe el espacio disponible */
+  margin-right: -15px; /* Ajusta el espacio entre el input y el ícono */
+}
+
+.shortener__form--icon {
+  cursor: pointer;
+  color: white; /* Establece el color blanco para el ícono */
+  position: relative;
+  top: -6px;
+  left: 20px;
+}
+
+
 ul {
   margin-right: 1rem;
 }
@@ -30,7 +50,7 @@ li {
   margin-top: 1rem;
 }
 
-.header__button-ul {
+.header__navbar-ul {
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
@@ -83,4 +103,40 @@ li {
 
 .shortener__form--button:hover {
   background-color: #5139ff;
+}
+
+
+.dashboard__links-container:hover .dashboard__tooltip {
+  visibility: visible;
+}
+
+
+/* Si no tienes un archivo de estilos, puedes añadir estos estilos directamente en tu archivo HTML con el tag <style> */
+
+.dashboard__tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dashboard__tooltip {
+  visibility: hidden;
+  width: max-content;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -75px; /* Ajusta según sea necesario */
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 12px;
+}
+
+.dashboard__tooltip-container:hover .dashboard__tooltip {
+  visibility: visible;
+  opacity: 1;
 }

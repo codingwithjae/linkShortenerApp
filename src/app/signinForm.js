@@ -20,10 +20,6 @@ signInForm.addEventListener("submit", async (e) => {
     // show welcome message
     showMessage("Welcome " + userCredentials.user.email);
 
-    const signupModal = document.getElementById("#signin-modal");
-    if (signupModal) {
-      signupModal.style.display = "none";
-    }
   } catch (error) {
     if (error.code === "auth/wrong-password") {
       showMessage("Wrong password", "error");

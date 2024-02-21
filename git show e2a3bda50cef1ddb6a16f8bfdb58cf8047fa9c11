@@ -1,0 +1,209 @@
+[33mcommit 0667a7ae43e5358b3b5c4087bebe039753ec2394[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Johander <johandercampos@outlook.com>
+Date:   Sun Feb 18 19:00:49 2024 -0300
+
+    User capacities to delete links from FireStore
+
+[33mcommit 71f36e05f3c7bd7b95d763c5fdef76e8b9b0eaed[m
+Author: Johander <johandercampos@outlook.com>
+Date:   Sun Feb 18 03:41:52 2024 -0300
+
+    Firestore implementation
+
+[33mcommit 78253530d6738649d162c69875483f1f8846c972[m
+Author: Johander <johandercampos@outlook.com>
+Date:   Sat Feb 17 20:32:37 2024 -0300
+
+    New changes to styles
+
+[33mcommit 387eb9be4b0ff4c0ce18cc73f7affb6aa04b1687[m
+Author: Johander <johandercampos@outlook.com>
+Date:   Sat Feb 17 20:26:09 2024 -0300
+
+    First implementations of backend using Firebase
+
+[33mcommit 2881ed6a0c7433bf451b264fd08683053edcee0c[m
+Author: Johander <johandercampos@outlook.com>
+Date:   Wed Feb 14 00:27:05 2024 -0300
+
+    New upload of the repository
+
+[33mcommit 014167da18a07cd55d3fa34d9b03ac1381211bdd[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Wed Feb 14 00:25:38 2024 -0300
+
+    Delete index.html
+
+[33mcommit 5647a91ad906b208b02cd502bbdce4e8a0fa9f1f[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Wed Feb 14 00:25:32 2024 -0300
+
+    Delete LICENSE
+
+[33mcommit 3de32e6732f8ee302ac56bff8c512f23a18f3e7d[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Wed Feb 14 00:25:26 2024 -0300
+
+    Delete styles directory
+
+[33mcommit 78436f612a3ab41f672d6ae37354e73df464ddf2[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Wed Feb 14 00:25:20 2024 -0300
+
+    Delete scripts directory
+
+[33mcommit 8c73053d94b12c441bd643d6ef0f8eaf0f69b812[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Wed Feb 14 00:24:46 2024 -0300
+
+    Delete assets directory
+
+[33mcommit cf3d9beaf7dcee0984f28e834e9d1e2b833791b9[m
+Author: Johander <johandercampos@outlook.com>
+Date:   Tue Feb 13 23:57:12 2024 -0300
+
+    First implementation new upload
+
+[33mcommit 92df544a5b882604d9caad6285db38ded0a752cd[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Tue Feb 13 23:55:07 2024 -0300
+
+    Delete index.html
+
+[33mcommit 9fe7a60758c1e00b49547c501f5bedabdbfba5f8[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Tue Feb 13 23:55:00 2024 -0300
+
+    Delete LICENSE
+
+[33mcommit ba72117a949066d6c04ea56215bfa4f8dffe996e[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Tue Feb 13 23:54:53 2024 -0300
+
+    Delete scripts directory
+
+[33mcommit 0e8b4d9b3665e88f3865d1612acffff29f1579ec[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Tue Feb 13 23:54:48 2024 -0300
+
+    Delete styles directory
+
+[33mcommit 626c6ad9f73d5a2765035797fccf7db2778f8c30[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Tue Feb 13 23:54:41 2024 -0300
+
+    Delete assets directory
+
+[33mcommit e0efde09c15c0c68ef81fcad89370706b061b773[m
+Author: Johander <johandercampos@outlook.com>
+Date:   Tue Feb 13 23:30:39 2024 -0300
+
+    New repository
+
+[33mcommit 907a8bfca09f080940a4eb78d36e33564fec644c[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Tue Feb 13 23:29:21 2024 -0300
+
+    Delete index.html
+
+[33mcommit 110e4c63c615d0999dbed321eddfb93c4b89cf9f[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Tue Feb 13 23:28:41 2024 -0300
+
+    Delete LICENSE
+
+[33mcommit e9ff0c570366b808768dccbd3770f90efeaddc93[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Tue Feb 13 23:25:51 2024 -0300
+
+    Delete styles directory
+
+[33mcommit fa85118f0b19cac5fb527f14499755b298a244d9[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Tue Feb 13 23:25:45 2024 -0300
+
+    Delete scripts directory
+
+[33mcommit cc0abfd8994d96748c3533ac6635d950dd975c70[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Tue Feb 13 23:25:39 2024 -0300
+
+    Delete assets directory
+
+[33mcommit f0a19ee2b65ef8624ee1c3a22297e997d8f57342[m
+Author: Johander <johandercampos@outlook.com>
+Date:   Tue Feb 13 22:26:45 2024 -0300
+
+    Testing on Vercel
+
+[33mcommit a745bb2c8ca997207edcbcf9ba3458641c223eee[m
+Author: Johander <johandercampos@outlook.com>
+Date:   Tue Feb 13 20:39:51 2024 -0300
+
+    First logic implementation
+
+[33mcommit 2de8aff55dcae9a6f6948fada9362b315d140c98[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Tue Feb 13 20:11:56 2024 -0300
+
+    Delete package.json
+
+[33mcommit 107d0b47447a011bf6a017fb94817fb0333e8211[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Tue Feb 13 20:11:50 2024 -0300
+
+    Delete package-lock.json
+
+[33mcommit 71e20ceff38f5f32f80fe306dbaed2ad0994870f[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Tue Feb 13 20:11:43 2024 -0300
+
+    Delete LICENSE
+
+[33mcommit c8292ea15358f61bc973865cac5aeb06c931c2d6[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Tue Feb 13 20:11:38 2024 -0300
+
+    Delete index.html
+
+[33mcommit bdf883343162f26f68a76e584eb10213f059f8ef[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Tue Feb 13 20:11:29 2024 -0300
+
+    Delete styles directory
+
+[33mcommit f291f377111e48e716855e5be06934ed6de417a1[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Tue Feb 13 20:11:23 2024 -0300
+
+    Delete scripts directory
+
+[33mcommit 2ef6d9f6af0afb95ad49a51673e7cbbdb17f2237[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Tue Feb 13 20:11:16 2024 -0300
+
+    Delete assets directory
+
+[33mcommit 8a5cc45f2df1b400decb19783cacda91db98286d[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Tue Feb 13 20:11:07 2024 -0300
+
+    Delete node_modules directory
+
+[33mcommit c2695098ec52fdee519c55a12f88436ad92485dc[m
+Author: Johander <johandercampos@outlook.com>
+Date:   Tue Feb 13 16:27:42 2024 -0300
+
+    Cors first implementation
+
+[33mcommit e2a3bda50cef1ddb6a16f8bfdb58cf8047fa9c11[m
+Author: Johander <johandercampos@outlook.com>
+Date:   Tue Feb 13 00:03:54 2024 -0300
+
+    First draft of the logic of the app
+
+[33mcommit 38daf59eebbb2b507d475b8ccc357cb02f1cd00a[m
+Author: Johander Campos <93935914+jaedevgithub@users.noreply.github.com>
+Date:   Mon Feb 12 05:55:02 2024 -0300
+
+    Initial commit

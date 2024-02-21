@@ -1,12 +1,17 @@
-const loggedOutLinks = document.querySelectorAll(".logged-out");
-const loggedInLinks = document.querySelectorAll(".logged-in");
+const loggedOutLinks = document.querySelectorAll(".header__logged-out-buttons");
+const loggedOutButtonOut = document.querySelectorAll(".logged-in");
+const logOutButtonIn = document.getElementById("log-out");
+const signinModal = document.getElementById("#signin-modal");
 
 export const loginCheck = (user) => {
   if (user) {
-    loggedInLinks.forEach((link) => (link.style.display = "block"));
+    loggedOutButtonOut.forEach((link) => (link.style.display = "block"));
     loggedOutLinks.forEach((link) => (link.style.display = "none"));
+    logOutButtonIn.classList.remove("hidden");
+    
   } else {
-    loggedInLinks.forEach((link) => (link.style.display = "none"));
+    loggedOutButtonOut.forEach((link) => (link.style.display = "none"));
     loggedOutLinks.forEach((link) => (link.style.display = "block"));
+    logOutButtonIn.classList.add("hidden");
   }
 };
