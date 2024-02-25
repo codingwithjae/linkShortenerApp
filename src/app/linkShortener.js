@@ -44,7 +44,10 @@ export function initializeLinkShortener() {
 
   function postData(event) {
     event.preventDefault();
-    
+
+    let inputElement = document.querySelector(".shortener__form-url");
+    let errorMessage = document.querySelector(".shortener__error");
+
     let urlInput = inputElement.value;
 
     const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
@@ -61,19 +64,17 @@ export function initializeLinkShortener() {
 
     errorMessage.textContent = "";
 
-    const rebrandlyApiKey = "3f39d47cb9974b72b3610a967505005e"; // Tu clave de API Rebrandly
-
-    const apiUrl = "https://api.rebrandly.com/v1/links";
+    // Usamos la nueva API de Cleanuri
+    const apiUrl = "https://cleanuri.com/api/v1/shorten";
     const requestOptions = {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        apikey: rebrandlyApiKey,
+        "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: JSON.stringify({ destination: urlInput }),
+      body: `url=${encodeURIComponent(urlInput)}`,
     };
 
-    console.log("Initiating POST request to Rebrandly API");
+    console.log("Initiating POST request to Cleanuri API");
 
     fetch(apiUrl, requestOptions)
       .then((response) => {
@@ -83,10 +84,10 @@ export function initializeLinkShortener() {
         return response.json();
       })
       .then((data) => {
-        console.log("Short link", data.shortUrl);
+        console.log("Short link", data.result_url);
         showMessage(`Link created successfully`);
-        inputElement.value = data.shortUrl;
-        inputElement.setAttribute("title", data.destination); // Set tooltip
+        inputElement.value = data.result_url;
+        inputElement.setAttribute("title", urlInput); // Set tooltip
 
         const user = auth.currentUser;
 
@@ -94,7 +95,7 @@ export function initializeLinkShortener() {
           const linkData = {
             userId: user.uid,
             originalUrl: urlInput,
-            shortUrl: data.shortUrl,
+            shortUrl: data.result_url,
           };
 
           addDoc(collection(db, "usersLinks"), linkData)
