@@ -29,27 +29,29 @@
     <title>Scissor Sharp</title>
   </head>
   <body
-    class="Body__main-styles min-h-screen bg-cover bg-center bg-no-repeat overflow-x-hidden"
+    class="body__main-styles min-h-screen bg-cover bg-center bg-no-repeat overflow-x-hidden"
     style="background-image: url('./assets/background.jpg')"
   >
-    <header class="header relative lg:-mt-4 flex justify-between">
-      <nav class="header__nav flex w-auto mx-auto">
+    <header class="header lg:-mt-4 flex justify-between">
+      <nav
+        class="header__nav flex w-auto mx-auto lg:w-full lg:justify-around lg:flex"
+      >
+        <!-- Navbar Container -->
         <div
-          class="header__navbar-container p-3 shadow-2xl md:shadow-none bg-white text-black duration-500 md:static absolute md:min-h-fit right-4 top-[-160%] md:w-auto w-40 md:bg-transparent md:text-white flex items-center px-5 rounded-md"
+          class="header__navbar-container p-3 shadow-2xl md:shadow-none bg-gray-800 text-white duration-500 md:static absolute md:min-h-fit right-4 top-[-160%] md:w-auto w-40 md:bg-transparent md:text-white flex items-center px-5 rounded-md z-10"
         >
+          <!-- Navbar Items -->
           <ul
-            class="header__navbar-ul flex md:flex-row flex-col md:items-center md:gap-[3vw] gap-6 "
+            class="header__navbar-ul flex md:flex-row flex-col -top-2 md:top-1 md:items-center md:gap-[3vw] gap-6 relative md:-left-32 lg:-left-20"
           >
             <li class="header__nav-li">
-              <a
-                class="hover:text-gray-500 relative tracking-wider font-light"
-                href="#"
+              <a class="hover:text-gray-500 tracking-wide font-bold" href="#"
                 >Features</a
               >
             </li>
             <li class="header__nav-li">
               <a
-                class="header__dashboard-button hover:text-gray-500 hidden tracking-wider font-light"
+                class="header__dashboard-button hover:text-gray-500 tracking-wide font-bold md:absolute opacity-0 transition-opacity duration-300 ease-in-out top-4"
                 id="log-out"
                 href="#"
                 >Dashboard</a
@@ -58,27 +60,39 @@
           </ul>
         </div>
 
-        <div class="header__button-container flex items-center gap-6 md:mr-14">
-          <div class="header__image-container w-32 md:w-40 relative">
-            <img
-              class="header__image-logo w-full h-full cursor-pointer relative"
-              src="./assets/logo.png"
-              alt="logo of the app"
-            />
-          </div>
+        <!-- Logo Container -->
+        <div
+          class="header__image-container w-32 md:w-40 lg:right-14 relative md:top-2"
+        >
+          <img
+            class="header__image-logo w-full h-full cursor-pointer"
+            src="./assets/logo.png"
+            alt="Logo of the app"
+          />
+        </div>
+
+        <!-- Button Container -->
+        <div
+          class="header__button-container flex items-center gap-6 md:mr-14 relative md:left-40 lg:left-32"
+        >
+          <!-- Sign In Button -->
           <button
             id="header__signin-button"
-            class="header__logged-out-buttons hidden text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center w-24 md:w-28 md:text-lg"
+            class="header__logged-out-buttons hidden text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center w-24 md:w-28 md:text-lg md:absolute md:right-1 md:mt-3"
           >
             Sign in
           </button>
+
+          <!-- Log Out Button -->
           <button
-            class="logged-in hidden text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center md:w-28 md:text-lg"
+            class="logged-in hidden text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center md:w-28 md:text-lg md:absolute md:right-1 md:mt-3"
             type="button"
             id="log-out"
           >
             Log out
           </button>
+
+          <!-- Menu Button -->
           <button class="header__menu-button"></button>
         </div>
       </nav>
@@ -87,17 +101,15 @@
     <section
       id="main__signup-modal"
       aria-hidden="true"
-      class="hidden overflow-x-hidden overflow-y-auto fixed h-full w-full top-0 left-0 flex items-center justify-center bg-black bg-opacity-50 z-10"
+      class="hidden overflow-x-hidden overflow-y-auto fixed h-full w-full top-0 left-0 flex items-center justify-center bg-black bg-opacity-50 z-20"
     >
-      <div class="relative w-92 max-w-md px-4 h-full md:h-auto">
-        <div
-          class="modal__content bg-white rounded-lg shadow relative"
-        >
+      <div class="relative w-96 max-w-md px-4 md:mx-auto">
+        <div class="modal__content bg-gray-800 rounded-lg shadow relative">
           <div class="flex justify-end p-2 z-10">
             <button
               id="main__signup-modal-close"
               type="button"
-              class="modal__close-btn text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+              class="modal__close-btn text-white bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
             >
               <svg
                 class="w-5 h-5"
@@ -120,40 +132,42 @@
             action="#"
           >
             <h3
-              class="modal__title text-xl font-medium text-gray-900 dark:text-white"
+              class="modal__title text-xl font-medium text-gray-900 dark:text-white text-center"
             >
               Sign up to our platform
             </h3>
-            <div>
-              <label
-                for="email"
-                class="modal__label text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300"
-                >Your email</label
-              >
-              <input
-                type="email"
-                name="email"
-                id="signup-email"
-                class="modal__input bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                placeholder="name@company.com"
-                required=""
-              />
-            </div>
+            <div class="flex flex-col items-center">
+              <div class="w-full mb-4">
+                <label
+                  for="email"
+                  class="modal__label text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300"
+                  >Your email</label
+                >
+                <input
+                  type="email"
+                  name="email"
+                  id="signup-email"
+                  class="modal__input bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                  placeholder="name@company.com"
+                  required=""
+                />
+              </div>
 
-            <div>
-              <label
-                for="password"
-                class="modal__label text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300"
-                >Your password</label
-              >
-              <input
-                type="password"
-                name="password"
-                id="signup-password"
-                placeholder="••••••••"
-                class="modal__input bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                required=""
-              />
+              <div class="w-full mb-4">
+                <label
+                  for="password"
+                  class="modal__label text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300"
+                  >Your password</label
+                >
+                <input
+                  type="password"
+                  name="password"
+                  id="signup-password"
+                  placeholder="••••••••"
+                  class="modal__input bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                  required=""
+                />
+              </div>
             </div>
 
             <button
@@ -176,44 +190,71 @@
     </section>
 
     <main
-      class="shortener flex items-center flex-col lg:border lg:ml-20 lg:mr-20 lg:mb-20 shadow-xl"
+      class="shortener flex-col lg:ml-20 lg:mr-20 lg:mb-20 min-h-screen flex items-center justify-center"
     >
-      <section class="shortener__content-container h-auto">
+      <section
+        class="shortener__content-container h-auto relative lg:top-[-70px]"
+      >
+        <!-- Image 1 -->
+        <div
+          class="shortener__image-1 hidden relative lg:block top-8 w-56 -left-20"
+        >
+          <img
+            class="shortener__images--png h-fit w-fit"
+            src="./assets/string.png"
+            alt=""
+          />
+        </div>
+
+        <!-- Copy Section -->
         <div
           class="shortener__copy text-white flex flex-col text-center items-center"
         >
+          <!-- Copy Container 1 -->
           <div
-            class="shortener__copy-container-1 lg:mb-4 mb-16 mt-10 md:mb-32 md:mt-20 lg:mt-60"
+            class="shortener__copy-container-1 lg:mb-0 mb-16 mt-10 md:mb-32 md:mt-20 lg:mt-24 lg:w-auto"
           >
             <h2
-              class="font-medium text-transparent md:text-8xl text-5xl bg-clip-text bg-gradient-to-b from-gray-50 to-gray-500"
+              class="shortener__copy-container-h2 font-medium text-transparent md:text-8xl text-5xl bg-clip-text bg-gradient-to-b from-gray-50 to-gray-500 animate-gradient"
             >
-              Allow people find you on the internet. Superfast!
+              Allow people find you
+              <span class="shortener__copy-h2-margin lg:mt-8 lg:block"
+                >on the internet. Superfast!</span
+              >
             </h2>
           </div>
+
+          <!-- Copy Container 2 -->
           <div
-            class="shortener__copy-container-2 lg:mt-28 lg:w-[860px] flex items-center"
+            class="shortener__copy-container-2 lg:mt-12 lg:w-[860px] flex items-center"
           >
-            <h2
-              class="shortener__copy_p font-light text-md text-transparent md:text-2xl bg-clip-text bg-gradient-to-r from-gray-50 to-gray-200 mb-10"
+            <p
+              class="shortener__copy-p font-light text-md text-transparent md:text-2xl bg-clip-text bg-gradient-to-r from-gray-50 to-gray-200 mb-10"
             >
-              Say good bye to long, cumbersome URLs and hello to a simple,
-              sleeker way to shorten, share and manage your links.
-            </h2>
+              Say goodbye to long, cumbersome URLs and hello to a simple,
+              sleeker
+              <span class="shortener__copy-h2-margin lg:mt-3 lg:block"
+                >way to shorten, share and manage your links.</span
+              >
+            </p>
           </div>
-          <div class="shortener__copy-container-3 lg:mt-10">
-            <h2
+
+          <!-- Copy Container 3 -->
+          <div class="shortener__copy-container-3 lg:mt-4">
+            <p
               class="shortener__copy_p font-medium text-md md:text-xl text-gray-300"
             >
               Enter your link now to shorten it
-            </h2>
+            </p>
           </div>
         </div>
 
+        <!-- Form Container -->
         <div
-          class="shortener__container relative flex items-center justify-center h-[400px] md:h-[800px] lg:-top-48 "
+          class="shortener__container relative flex items-center justify-center h-[400px] md:h-[200px] lg:top-2"
         >
           <div class="shortener__form-container lg:mr-44">
+            <!-- Shortener Form -->
             <form class="shortener__form" novalidate="novalidate">
               <div
                 class="shortener__input-container lg:flex lg:flex-row flex flex-col items-stretch w-[260px]"
@@ -221,12 +262,15 @@
                 <div
                   class="shortener__input--container-icon relative flex items-center"
                 >
+                  <!-- Copy Icon -->
                   <div
                     class="shortener__form-icon cursor-pointer text-white relative top-[-6px] left-4 z-10"
                     title="Copy link"
                   >
                     <i class="fas fa-copy"></i>
                   </div>
+
+                  <!-- Input Field -->
                   <input
                     name="url"
                     class="shortener__form-url lg:w-72 relative -left-[13px] flex-1 mr-[-15px] h-12 mb-4 border-none focus:outline-none bg-[#353f52] text-white rounded-[0.4rem] pl-10 w-full"
@@ -239,6 +283,8 @@
                     placeholder="Enter a link to be shortened"
                   />
                 </div>
+
+                <!-- Submit Button -->
                 <div class="shortener__button-container">
                   <button
                     class="shortener__form-button bg-blue-700 hover:bg-blue-800 lg:w-32 lg:ml-6 text-white rounded-md w-full h-[44px] lg:h-[48px] mb-4 border-none outline-none focus:outline-solid focus:outline-[#353f52]"
@@ -253,20 +299,46 @@
             </form>
           </div>
         </div>
+
+        <!-- Image 2 -->
+        <div
+          class="shortener__image-2 hidden relative bottom-8 w-32 left-[1200px] lg:block blur-sm"
+        >
+          <img
+            class="shortener__images--png h-fit w-fit"
+            src="./assets/string.png"
+            alt=""
+          />
+        </div>
+
+        <!-- Image 3 -->
+        <div
+          class="shortener__image-3 hidden md:block relative bottom-8 w-32 left-[600px] lg:hidden blur-sm"
+        >
+          <img
+            class="shortener__images--png h-fit w-fit"
+            src="./assets/string.png"
+            alt=""
+          />
+        </div>
       </section>
 
+      <!-- Dashboard Section -->
       <section
         class="dashboard fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 hidden align-content-center z-99"
       >
         <div
           class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-gray-800 rounded-lg shadow-lg sm:w-42 lg:w-96"
         >
+          <!-- Close Button -->
           <button
             class="dashboard__close-button absolute flex flex-end top-2 right-3"
             aria-label="Close"
           >
             <i class="fa-solid fa-times text-white"></i>
           </button>
+
+          <!-- Dashboard Content -->
           <div
             class="dashboard__ul-container flex align-content-center flex-col items-center justify-center p-8 shadow"
           >

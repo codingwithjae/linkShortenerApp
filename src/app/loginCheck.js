@@ -8,6 +8,7 @@ export const loginCheck = (user) => {
     loggedOutButtonOut.forEach((link) => (link.style.display = "block"));
     loggedOutLinks.forEach((link) => (link.style.display = "none"));
     logOutButtonIn.classList.remove("hidden");
+    logOutButtonIn.classList.add("opacity-100");
     formModalClose.classList.add("hidden");
     
   } else {
