@@ -1,10 +1,11 @@
 {
   "name": "linkshortenerapp",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:styles": "postcss src/styles.css -o public/build/styles.css",
+    "watch:styles": "postcss src/styles.css -o public/build/styles.css --watch"
   },
   "author": "",
   "license": "ISC",
@@ -12,6 +13,8 @@
     "tailwindcss": "^3.4.1"
   },
   "dependencies": {
-    "flowbite": "^2.3.0"
-  }
+    "flowbite": "^2.3.0",
+    "react-loader-spinner": "^6.1.6"
+  },
+  "description": ""
 }

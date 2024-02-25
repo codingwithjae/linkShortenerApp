@@ -16,11 +16,11 @@ export function initializeLinkShortener() {
   let buttonClicked = false;
 
   // Asigna el evento de input
-  let linkInput = document.querySelector(".shortener__form--url");
+  let linkInput = document.querySelector(".shortener__form-url");
   linkInput.addEventListener("input", handleInputChange);
 
   // Asigna el evento de click
-  let shortenerButton = document.getElementById("shortener__input--button");
+  let shortenerButton = document.getElementById("shortener__input-button");
   shortenerButton.addEventListener("click", postData);
 
   // Verificar el estado de autenticación del usuario
@@ -44,9 +44,7 @@ export function initializeLinkShortener() {
 
   function postData(event) {
     event.preventDefault();
-
-    let inputElement = document.querySelector(".shortener__form--url");
-    let errorMessage = document.getElementById("shortener__error--message");
+    
     let urlInput = inputElement.value;
 
     const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
@@ -115,10 +113,10 @@ export function initializeLinkShortener() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const copyIcon = document.querySelector(".shortener__form--icon");
+  const copyIcon = document.querySelector(".shortener__form-icon");
 
   copyIcon.addEventListener("click", function () {
-    const inputElement = document.querySelector(".shortener__form--url");
+    const inputElement = document.querySelector(".shortener__form-url");
 
     // Selecciona el texto en el input
     inputElement.select();

@@ -6,14 +6,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&family=Poppins:wght@300;400;500;700&display=swap"
       rel="stylesheet"
-      href="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.min.css"
     />
-    <script
-      defer
-      src="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.bundle.js"
-    ></script>
-
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
       type="text/css"
@@ -23,99 +19,85 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
     ></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&family=Poppins:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <script defer src="main.js" type="module"></script>
+    <script src="main.js" type="module"></script>
     <script
       src="https://kit.fontawesome.com/41e92b9e7c.js"
       crossorigin="anonymous"
     ></script>
-
-    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="output.css" />
 
     <title>Scissor Sharp</title>
   </head>
-  <body>
-    <header>
-      <ul class="header__navbar-ul">
-        <li>
-          <button
-            class="header__logged-out-buttons text-white bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            type="button"
-            data-modal-toggle="signinModal"
+  <body
+    class="Body__main-styles min-h-screen bg-cover bg-center bg-no-repeat overflow-x-hidden"
+    style="background-image: url('./assets/background.jpg')"
+  >
+    <header class="header relative lg:-mt-4 flex justify-between">
+      <nav class="header__nav flex w-auto mx-auto">
+        <div
+          class="header__navbar-container p-3 shadow-2xl md:shadow-none bg-white text-black duration-500 md:static absolute md:min-h-fit right-4 top-[-160%] md:w-auto w-40 md:bg-transparent md:text-white flex items-center px-5 rounded-md"
+        >
+          <ul
+            class="header__navbar-ul flex md:flex-row flex-col md:items-center md:gap-[3vw] gap-6 "
           >
-            Log In
-          </button>
-        </li>
+            <li class="header__nav-li">
+              <a
+                class="hover:text-gray-500 relative tracking-wider font-light"
+                href="#"
+                >Features</a
+              >
+            </li>
+            <li class="header__nav-li">
+              <a
+                class="header__dashboard-button hover:text-gray-500 hidden tracking-wider font-light"
+                id="log-out"
+                href="#"
+                >Dashboard</a
+              >
+            </li>
+          </ul>
+        </div>
 
-        <li>
+        <div class="header__button-container flex items-center gap-6 md:mr-14">
+          <div class="header__image-container w-32 md:w-40 relative">
+            <img
+              class="header__image-logo w-full h-full cursor-pointer relative"
+              src="./assets/logo.png"
+              alt="logo of the app"
+            />
+          </div>
           <button
-            class="header__logged-out-buttons text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            type="button"
-            data-modal-toggle="signup-modal"
+            id="header__signin-button"
+            class="header__logged-out-buttons hidden text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center w-24 md:w-28 md:text-lg"
           >
-            Sign Up
+            Sign in
           </button>
-        </li>
-        <li>
           <button
-            class="header__dashboard-button nblock text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            type="button"
-            id="log-out"
-          >
-            Dashboard
-          </button>
-        </li>
-        <li>
-          <button
-            class="logged-in block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            class="logged-in hidden text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center md:w-28 md:text-lg"
             type="button"
             id="log-out"
           >
             Log out
           </button>
-        </li>
-      </ul>
-
-         <!-- Dashboard modal-->
-      <section
-        class="dashboard fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-40 hidden align-content-center"
-      >
-     
-        <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-gray-800 rounded-lg shadow-lg sm:w-42 lg:w-96">
-          <button class="dashboard__close-button absolute flex flex-end top-2 right-3" aria-label="Close">
-            <i class="fa-solid fa-times text-white"></i>
-          </button>
-          <div class="dashboard__ul-container flex align-content-center flex-col items-center justify-center p-8 shadow">
-            <h2 class="text-3xl font-semibold text-white mb-8">Dashboard</h2>
-            <div class="dashboard__links-list"></div>
-          </div>
-          
-        </section>
-        
+          <button class="header__menu-button"></button>
+        </div>
+      </nav>
     </header>
 
-    <!-- Modal toggle button -->
-
-    <!-- signupModal modal -->
-    <div
-      id="signup-modal"
+    <section
+      id="main__signup-modal"
       aria-hidden="true"
-      class="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center z-10"
+      class="hidden overflow-x-hidden overflow-y-auto fixed h-full w-full top-0 left-0 flex items-center justify-center bg-black bg-opacity-50 z-10"
     >
-      <div class="relative w-full max-w-md px-4 h-full md:h-auto">
-        <!-- Modal content -->
+      <div class="relative w-92 max-w-md px-4 h-full md:h-auto">
         <div
-          class="modal__content bg-white rounded-lg shadow relative dark:bg-gray-700"
+          class="modal__content bg-white rounded-lg shadow relative"
         >
-          <div class="flex justify-end p-2">
+          <div class="flex justify-end p-2 z-10">
             <button
-              id="moda-button"
+              id="main__signup-modal-close"
               type="button"
               class="modal__close-btn text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-              data-modal-toggle="signup-modal"
             >
               <svg
                 class="w-5 h-5"
@@ -176,13 +158,14 @@
 
             <button
               type="submit"
+              id="signInButton"
               class="modal__submit--button w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Sign Up
             </button>
             <button
               type="button"
-              class="btn btn-info w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               id="googleLogin"
             >
               Google
@@ -190,134 +173,107 @@
           </form>
         </div>
       </div>
-    </div>
+    </section>
 
-  
-    <!-- signinModal modal -->
-    <div
-      id="signinModal"
-      aria-hidden="true"
-      class="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center"
+    <main
+      class="shortener flex items-center flex-col lg:border lg:ml-20 lg:mr-20 lg:mb-20 shadow-xl"
     >
-      <div class="relative w-full max-w-md px-4 h-full md:h-auto">
-        <!-- Modal content -->
+      <section class="shortener__content-container h-auto">
         <div
-          class="modal__content bg-white rounded-lg shadow relative dark:bg-gray-700"
+          class="shortener__copy text-white flex flex-col text-center items-center"
         >
-          <div class="flex justify-end p-2">
-            <button
-              type="button"
-              class="modal__close-btn text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-              data-modal-toggle="signinModal"
-            >
-              <svg
-                class="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </button>
-          </div>
-          <form
-            id="signin-form"
-            class="modal__form space-y-6 px-6 lg:px-8 pb-4 sm:pb-6 xl:pb-8"
-            action="#"
+          <div
+            class="shortener__copy-container-1 lg:mb-4 mb-16 mt-10 md:mb-32 md:mt-20 lg:mt-60"
           >
-            <h3
-              class="modal__title text-xl font-medium text-gray-900 dark:text-white"
+            <h2
+              class="font-medium text-transparent md:text-8xl text-5xl bg-clip-text bg-gradient-to-b from-gray-50 to-gray-500"
             >
-              Log In to our platform
-            </h3>
-            <div>
-              <label
-                for="email"
-                class="modal__label text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300"
-                >Your email</label
-              >
-              <input
-                type="email"
-                name="email"
-                id="signin-email"
-                class="modal__input bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                placeholder="name@company.com"
-                required=""
-              />
-            </div>
-            <div>
-              <label
-                for="password"
-                class="modal__label text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300"
-                >Your password</label
-              >
-              <input
-                type="password"
-                name="password"
-                id="signin-password"
-                placeholder="••••••••"
-                class="modal__input bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                required=""
-              />
-            </div>
-            <button
-              type="submit"
-              class="modal__submit--button w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              Login to your account
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <!-- Dashboard modal -->
-
-    <main class="shortener">
-      <section class="shortener__container">
-        <form class="shortener__form" novalidate="novalidate">
-          <div class="shortener__input--container">
-            <div class="shortener__input--container-icon">
-              <input
-                name="url"
-                class="shortener__form--url"
-                type="url"
-                spellcheck="false"
-                autocomplete="off"
-                autocorrect="off"
-                autocapitalize="none"
-                required="required"
-                placeholder="Enter a link to be shortened"
-              />
-              <div class="shortener__form--icon" title="Copy link">
-                <!-- Usa el ícono de copiar de tu elección -->
-                <i class="fas fa-copy"></i>
-              </div>
-            </div>
-            <div class="shortener__button--container">
-              <button
-                class="shortener__form--button"
-                aria-label="Create Short Link"
-                type="submit"
-                id="shortener__input--button"
-              >
-                <span>Shorten URL</span>
-              </button>
-            </div>
+              Allow people find you on the internet. Superfast!
+            </h2>
           </div>
           <div
-            id="shortener__error--message"
-            class="shortener__success-message"
-          ></div>
+            class="shortener__copy-container-2 lg:mt-28 lg:w-[860px] flex items-center"
+          >
+            <h2
+              class="shortener__copy_p font-light text-md text-transparent md:text-2xl bg-clip-text bg-gradient-to-r from-gray-50 to-gray-200 mb-10"
+            >
+              Say good bye to long, cumbersome URLs and hello to a simple,
+              sleeker way to shorten, share and manage your links.
+            </h2>
+          </div>
+          <div class="shortener__copy-container-3 lg:mt-10">
+            <h2
+              class="shortener__copy_p font-medium text-md md:text-xl text-gray-300"
+            >
+              Enter your link now to shorten it
+            </h2>
+          </div>
+        </div>
+
+        <div
+          class="shortener__container relative flex items-center justify-center h-[400px] md:h-[800px] lg:-top-48 "
+        >
+          <div class="shortener__form-container lg:mr-44">
+            <form class="shortener__form" novalidate="novalidate">
+              <div
+                class="shortener__input-container lg:flex lg:flex-row flex flex-col items-stretch w-[260px]"
+              >
+                <div
+                  class="shortener__input--container-icon relative flex items-center"
+                >
+                  <div
+                    class="shortener__form-icon cursor-pointer text-white relative top-[-6px] left-4 z-10"
+                    title="Copy link"
+                  >
+                    <i class="fas fa-copy"></i>
+                  </div>
+                  <input
+                    name="url"
+                    class="shortener__form-url lg:w-72 relative -left-[13px] flex-1 mr-[-15px] h-12 mb-4 border-none focus:outline-none bg-[#353f52] text-white rounded-[0.4rem] pl-10 w-full"
+                    type="url"
+                    spellcheck="false"
+                    autocomplete="off"
+                    autocorrect="off"
+                    autocapitalize="none"
+                    required="required"
+                    placeholder="Enter a link to be shortened"
+                  />
+                </div>
+                <div class="shortener__button-container">
+                  <button
+                    class="shortener__form-button bg-blue-700 hover:bg-blue-800 lg:w-32 lg:ml-6 text-white rounded-md w-full h-[44px] lg:h-[48px] mb-4 border-none outline-none focus:outline-solid focus:outline-[#353f52]"
+                    aria-label="Create Short Link"
+                    type="submit"
+                    id="shortener__input-button"
+                  >
+                    <span>Shorten URL</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="dashboard fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 hidden align-content-center z-99"
+      >
+        <div
+          class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-gray-800 rounded-lg shadow-lg sm:w-42 lg:w-96"
+        >
+          <button
+            class="dashboard__close-button absolute flex flex-end top-2 right-3"
+            aria-label="Close"
+          >
+            <i class="fa-solid fa-times text-white"></i>
+          </button>
           <div
-            id="shortener__error--message"
-            class="shortener__success-message"
-          ></div>
-        </form>
+            class="dashboard__ul-container flex align-content-center flex-col items-center justify-center p-8 shadow"
+          >
+            <h2 class="text-3xl font-semibold text-white mb-8">Dashboard</h2>
+            <div class="dashboard__links-list"></div>
+          </div>
+        </div>
       </section>
     </main>
   </body>

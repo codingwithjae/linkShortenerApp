@@ -1,43 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   margin: 0;
   font-family: var(--Family);
   font-weight: var(--Weights);
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  overflow-y: hidden;
 }
 
-
-
-body {
-  height: 100%;
-  margin: 0;
-  background-image: url("./assets/background.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
 
 input {
   outline: none;
-}
-
-.shortener__input--container-icon {
-  position: relative;
-  display: flex;
-  align-items: center; /* Centra verticalmente los elementos en el contenedor */
-}
-
-.shortener__form--url {
-  flex: 1; /* Hace que el input ocupe el espacio disponible */
-  margin-right: -15px; /* Ajusta el espacio entre el input y el ícono */
-}
-
-.shortener__form--icon {
-  cursor: pointer;
-  color: white; /* Establece el color blanco para el ícono */
-  position: relative;
-  top: -6px;
-  left: 20px;
 }
 
 
@@ -50,43 +26,6 @@ li {
   margin-top: 1rem;
 }
 
-.header__navbar-ul {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: row;
-}
-
-.shortener__container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
-}
-
-.shortener__input--container {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: 260px;
-}
-
-.shortener__form--url,
-.shortener__form--button {
-  width: 100%;
-  height: 44px;
-  margin-bottom: 1rem;
-  border: none;
-  outline-color: #353f52;
-}
-
-.shortener__form--url {
-  background-color: #353f52;
-  border-radius: 0.4rem;
-  color: #dee0f5;
-  padding-left: 10px;
-}
 
 .shortener__form--url::placeholder {
   position: relative;
@@ -95,21 +34,13 @@ li {
   outline-width: 0.1px;
 }
 
-.shortener__form--button {
-  color: white;
-  background-color: #0350ec;
-  border-radius: 0.4rem;
-}
-
 .shortener__form--button:hover {
   background-color: #5139ff;
 }
 
-
 .dashboard__links-container:hover .dashboard__tooltip {
   visibility: visible;
 }
-
 
 /* Si no tienes un archivo de estilos, puedes añadir estos estilos directamente en tu archivo HTML con el tag <style> */
 
@@ -140,3 +71,4 @@ li {
   visibility: visible;
   opacity: 1;
 }
+
