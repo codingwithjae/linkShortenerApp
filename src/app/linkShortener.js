@@ -9,21 +9,24 @@ import {
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
+// Function to initialize the link shortener
 export function initializeLinkShortener() {
+  // Get Firestore and Auth instances
   const db = getFirestore();
   const auth = getAuth();
 
+  // Flag to track if the button was clicked
   let buttonClicked = false;
 
-  // Asigna el evento de input
+  // Assign input event listener
   let linkInput = document.querySelector(".shortener__form-url");
   linkInput.addEventListener("input", handleInputChange);
 
-  // Asigna el evento de click
+  // Assign click event listener
   let shortenerButton = document.getElementById("shortener__input-button");
   shortenerButton.addEventListener("click", postData);
 
-  // Verificar el estado de autenticación del usuario
+  // Check user authentication state
   onAuthStateChanged(auth, (user) => {
     if (!user) {
       showMessage(
@@ -33,15 +36,18 @@ export function initializeLinkShortener() {
     }
   });
 
+  // Handle input change event
   function handleInputChange(event) {
     let urlInput = event.target.value;
 
     const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
 
     if (!urlPattern.test(urlInput) && buttonClicked) {
+      // Handle invalid input if the button was clicked
     }
   }
 
+  // Handle button click event
   function postData(event) {
     event.preventDefault();
 
@@ -64,19 +70,17 @@ export function initializeLinkShortener() {
 
     errorMessage.textContent = "";
 
-    // Usamos la nueva API de Cleanuri
-    const apiUrl = "https://cleanuri.com/api/v1/shorten";
-    const requestOptions = {
+    // Proxy API URL for URL shortening
+    const proxyApiUrl = "https://corsproxyserver.onrender.com/api/v1/shorten";
+
+    // Make request to the proxy server
+    fetch(proxyApiUrl, {
       method: "POST",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json",
       },
-      body: `url=${encodeURIComponent(urlInput)}`,
-    };
-
-    console.log("Initiating POST request to Cleanuri API");
-
-    fetch(apiUrl, requestOptions)
+      body: JSON.stringify({ url: urlInput }),
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -92,6 +96,7 @@ export function initializeLinkShortener() {
         const user = auth.currentUser;
 
         if (user) {
+          // Save link data to Firestore
           const linkData = {
             userId: user.uid,
             originalUrl: urlInput,
@@ -109,24 +114,27 @@ export function initializeLinkShortener() {
       })
       .catch((error) => {
         console.error("Error:", error);
+        showMessage(`Link already generated`);
       });
   }
 }
 
+// Event listener for DOMContentLoaded
 document.addEventListener("DOMContentLoaded", function () {
   const copyIcon = document.querySelector(".shortener__form-icon");
 
+  // Event listener for click on copy icon
   copyIcon.addEventListener("click", function () {
     const inputElement = document.querySelector(".shortener__form-url");
 
-    // Selecciona el texto en el input
+    // Select text in the input
     inputElement.select();
     document.execCommand("copy");
 
-    // Deselecciona el texto
+    // Deselect text
     window.getSelection().removeAllRanges();
 
-    // Muestra un mensaje de éxito
+    // Show success message
     showMessage("Link copied to clipboard", "success");
   });
 });
