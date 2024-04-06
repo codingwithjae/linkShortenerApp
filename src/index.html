@@ -44,11 +44,9 @@
           <ul
             class="header__navbar-ul flex md:flex-row flex-col -top-2 md:top-1 md:items-center md:gap-[3vw] gap-6 relative md:-left-32 lg:-left-20"
           >
-            <li class="header__nav-li">
-              <a class="hover:text-gray-500 tracking-wide font-bold" href="#"
-                >Features</a
-              >
-            </li>
+          <li class="header__nav-li">
+            <a class="header__features-button hover:text-gray-500 tracking-wide font-bold" href="#">Features</a>
+          </li>
             <li class="header__nav-li">
               <a
                 class="header__dashboard-button hover:text-gray-500 tracking-wide font-bold md:absolute opacity-0 transition-opacity duration-300 ease-in-out top-4"
@@ -96,6 +94,42 @@
           <button class="header__menu-button"></button>
         </div>
       </nav>
+
+      <section class="features fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 hidden align-content-center z-20">
+        <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-gray-800 rounded-lg shadow-lg overflow-y-auto h-[31.25rem] w-[17.25rem] md:h-auto md:w-auto">
+          <!-- Close Button -->
+          <button class="features__close-button absolute flex flex-end top-2 right-3" aria-label="Close">
+            <i class="fa-solid fa-times text-gray-200 hover:text-gray-500"></i>
+          </button>
+        
+          <!-- Features Content -->
+          <div class="features__ul-container flex flex-col items-center justify-center p-8">
+            <h2 class="text-2xl font-semibold text-white mb-2">Features</h2>
+            <div class="features__links-list">
+              <ul class="features__navbar-ul flex flex-col gap-2 mt-2 cursor-pointer">
+                <li class="features__nav-li">
+                  <p class="text-gray-200 hover:text-gray-500 tracking-wide font-bold">Lightweight Link Shortening:</p>
+                  <p class="text-gray-200 mt-4">Easily shorten long URLs with a simple and intuitive interface.</p>
+                </li>
+                <li class="features__nav-li">
+                  <p class="text-gray-200 hover:text-gray-500 tracking-wide font-bold">No Registration Required:</p>
+                  <p class="text-gray-200 mt-4">Start using the app immediately without the hassle of creating an account.</p>
+                </li>
+                <li class="features__nav-li">
+                  <p class="text-gray-200 hover:text-gray-500 tracking-wide font-bold">Optional Registration for Link Saving:</p>
+                  <p class="text-gray-200 mt-4">Registering on the platform unlocks the ability to save shortened links. Access a personalized dashboard where all saved links are stored. View and manage saved links conveniently at any time.</p>
+                </li>
+                <li class="features__nav-li">
+                  <p class="text-gray-200 hover:text-gray-500 tracking-wide font-bold">Usage Limitation:</p>
+                  <p class="text-gray-200 mt-4">Ensure fair usage with a limitation of two link shortening operations per second per IP address.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+       
     </header>
 
     <section
@@ -326,7 +360,7 @@
 
       <!-- Dashboard Section -->
       <section
-        class="dashboard fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 hidden align-content-center z-99"
+        class="dashboard fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 hidden align-content-center z-20"
       >
         <div
           class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-gray-800 rounded-lg shadow-lg sm:w-42 lg:w-96"
@@ -343,7 +377,7 @@
           <div
             class="dashboard__ul-container flex align-content-center flex-col items-center justify-center p-8 shadow"
           >
-            <h2 class="text-3xl font-semibold text-white mb-8">Dashboard</h2>
+            <h2 class="text-3xl font-semibold text-white mb-8 cursor-pointer">Dashboard</h2>
             <div class="dashboard__links-list"></div>
           </div>
         </div>
@@ -351,3 +385,10 @@
     </main>
   </body>
 </html>
+
+
+ 
+
+
+
+

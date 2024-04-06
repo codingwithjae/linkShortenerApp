@@ -2,12 +2,12 @@ import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9
 import { auth } from "./firebase.js";
 import { showMessage } from "./showMessage.js";
 
-const signInForm = document.querySelector("#signin-form"); // Corregido aquí
+const signInForm = document.querySelector("#signin-form"); 
 
 signInForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const email = signInForm["signin-email"].value;
-  const password = signInForm["signin-password"].value; // Corregido aquí
+  const password = signInForm["signin-password"].value; 
 
   try {
     const userCredentials = await signInWithEmailAndPassword(
