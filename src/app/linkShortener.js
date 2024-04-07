@@ -1,15 +1,13 @@
 import { showMessage } from './showMessage.js';
-import { addDoc, collection, getFirestore } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
-import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+import { addDoc, collection } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+import { auth, db } from './firebase.js';
 
 // Function to initialize the link shortener
 export function initializeLinkShortener() {
-  // Get Firestore and Auth instances
-  const db = getFirestore();
-  const auth = getAuth();
-
-  // Flag to track if the button was clicked
+  // Flags to track button click and response arrival
   let buttonClicked = false;
+  let responseReceived = false;
 
   // Assign input event listener
   const linkInput = document.querySelector('.shortener__form-url');
@@ -29,7 +27,6 @@ export function initializeLinkShortener() {
   // Handle input change event
   function handleInputChange(event) {
     const urlInput = event.target.value;
-
     const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
 
     if (!urlPattern.test(urlInput) && buttonClicked) {
@@ -38,14 +35,12 @@ export function initializeLinkShortener() {
   }
 
   // Handle button click event
-  function postData(event) {
+  async function postData(event) {
     event.preventDefault();
 
     const inputElement = document.querySelector('.shortener__form-url');
     const errorMessage = document.querySelector('.shortener__error');
-
     const urlInput = inputElement.value;
-
     const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
 
     if (!urlPattern.test(urlInput)) {
@@ -56,55 +51,64 @@ export function initializeLinkShortener() {
 
     errorMessage.textContent = '';
 
+    // Show loading message after 2 seconds
+    const loadingMessageTimeout = setTimeout(() => {
+      if (!responseReceived) {
+        showMessage('Your link will be ready in a few seconds');
+      }
+    }, 2000);
+
     // Proxy API URL for URL shortening
     const proxyApiUrl = 'https://corsproxyserver.onrender.com/api/v1/shorten';
 
     // Make request to the proxy server
-    fetch(proxyApiUrl, {
+    const response = await fetch(proxyApiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ url: urlInput }),
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log('Short link', data.result_url);
-        showMessage('Link created successfully');
-        inputElement.value = data.result_url;
-        inputElement.setAttribute('title', urlInput); // Set tooltip
+    });
 
-        const user = auth.currentUser;
+    // Clear the loading message timeout
+    clearTimeout(loadingMessageTimeout);
 
-        if (user) {
-          // Save link data to Firestore
-          const linkData = {
-            userId: user.uid,
-            originalUrl: urlInput,
-            shortUrl: data.result_url,
-          };
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
 
-          addDoc(collection(db, 'usersLinks'), linkData)
-            .then(docRef => {
-              console.log('Document written with ID:', docRef.id);
-            })
-            .catch(error => {
-              console.error('Error adding document:', error);
-            });
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        showMessage('Link already generated');
-      });
+    const data = await response.json();
+    console.log('Short link', data.result_url);
+    
+    // Show success message
+    showMessage('Link created successfully');
+    inputElement.value = data.result_url;
+    inputElement.setAttribute('title', urlInput); // Set tooltip
+
+    const user = auth.currentUser;
+
+    if (user) {
+      // Save link data to Firestore
+      const linkData = {
+        userId: user.uid,
+        originalUrl: urlInput,
+        shortUrl: data.result_url,
+      };
+
+      try {
+        const docRef = await addDoc(collection(db, 'usersLinks'), linkData);
+        console.log('Document written with ID:', docRef.id);
+      } catch (error) {
+        console.error('Error adding document:', error);
+      }
+    }
+
+    // Set the response received flag to true
+    responseReceived = true;
   }
 }
 
+// Event listener for page load
 document.addEventListener('DOMContentLoaded', () => {
   const copyIcon = document.querySelector('.shortener__form-icon');
 

@@ -26,7 +26,6 @@ li {
   margin-top: 1rem;
 }
 
-
 .shortener__form--url::placeholder {
   position: relative;
   border-radius: 0.4rem;
@@ -61,7 +60,7 @@ li {
   z-index: 1;
   bottom: 125%;
   left: 50%;
-  margin-left: -75px; /* Ajusta según sea necesario */
+  margin-left: -75px; 
   opacity: 0;
   transition: opacity 0.3s;
   font-size: 12px;

@@ -1,3 +1,4 @@
+// Firebase and other module imports
 import {
   deleteDoc,
   doc,
@@ -7,115 +8,112 @@ import {
   onSnapshot,
 } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
 import {
-  getAuth,
   onAuthStateChanged,
 } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
 import { showMessage } from './showMessage.js';
-import { db } from './firebase.js';
+import { db, auth } from './firebase.js';
 
-// Selectors
-const dashboardContainer = document.querySelector('.dashboard');
-const featureContainer = document.querySelector('.features'); // Select the feature container
-const postedLinks = document.querySelector('.dashboard__links-list');
-const closeDashboardButton = document.querySelector('.dashboard__close-button');
-const closeFeatureButton = document.querySelector('.features__close-button'); // Select the feature close button
-const dashboardToggle = document.querySelector('.header__dashboard-button');
-const featuresToggle = document.querySelector('.header__features-button');
+// DOM element selectors
+const dashboardContainer = document.querySelector('.dashboard'); // Dashboard container
+const featureContainer = document.querySelector('.features'); // Features container
+const postedLinks = document.querySelector('.dashboard__links-list'); // List of posted links
+const closeDashboardButton = document.querySelector('.dashboard__close-button'); // Dashboard close button
+const closeFeatureButton = document.querySelector('.features__close-button'); // Features close button
+const dashboardToggle = document.querySelector('.header__dashboard-button'); // Dashboard toggle button
+const featuresToggle = document.querySelector('.header__features-button'); // Features toggle button
 
-// Function to create HTML for link
+// Function to create HTML for links
 const createLinkHTML = (links) => `
-  <div class="dashboard__links-container list-group-item-action text-white flex flex-row align-items-between mb-4 mt-2 ">
-    <button class="dashboard__copy-link-button relative right-6 transition duration-300 hover:text-gray-400" data-link-text="${links.shortUrl}"><i class="fa-regular fa-copy"></i></button>
-    <div class="dashboard__tooltip-container">
-      <p class="text-gray-300 font-light transition duration-300 hover:text-gray-400 cursor-pointer">${truncateUrl(links.shortUrl)}</p>
-      <span class="dashboard__tooltip bg-gray-800 text-white text-center rounded px-2 py-1 absolute bottom-full left-1/2 transform -translate-x-1/2 opacity-0 transition-opacity duration-300">${links.originalUrl}</span>
-    </div>
-    <button class="dashboard__delete-button relative left-6 transition duration-300 hover:text-gray-400" data-link-id="${links.docId}"><i class="fa-solid fa-delete-left"></i></button>
-  </div>
+<div class="dashboard__links-container list-group-item-action text-white flex flex-row items-center justify-between mb-4 mt-2">
+<button class="dashboard__copy-link-button relative right-4 md:right-12 transition duration-300 hover:text-gray-400" data-link-text="${links.shortUrl}">
+    <i class="fa-regular fa-copy"></i>
+</button>
+<div class="dashboard__tooltip-container">
+    <p class="text-gray-300 font-light transition duration-300 hover:text-gray-400 cursor-pointer">
+        ${truncateUrl(links.shortUrl)}
+    </p>
+    <span class="dashboard__tooltip bg-gray-800 text-white text-center rounded px-2 py-1 absolute bottom-full left-1/2 transform -translate-x-1/2 opacity-0 transition-opacity duration-300">
+        ${links.originalUrl}
+    </span>
+</div>
+<button class="dashboard__delete-button absolute right-1 md:right-14 transition duration-300 hover:text-gray-400" data-link-id="${links.docId}">
+    <i class="fa-solid fa-delete-left"></i>
+</button>
+</div>
 `;
 
 // Function to truncate URL
-const truncateUrl = (url) => {
-  const maxLength = 30;
-  return url.length > maxLength ? url.substring(0, maxLength) + '...' : url;
-};
+const truncateUrl = (url) => url.length > 30 ? `${url.substring(0, 30)}...` : url;
+
+// Event listener to toggle dashboard visibility
+dashboardToggle?.addEventListener('click', () => dashboardContainer.classList.toggle('hidden'));
+
+// Event listener to toggle features visibility
+featuresToggle?.addEventListener('click', () => {
+  featureContainer.classList.toggle('hidden'); 
+  dashboardContainer.classList.add('hidden');
+});
 
 // Function to set up links
 export const setupLinks = async () => {
-  const auth = getAuth();
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-
+      // Query to get user's links
       const userLinksQuery = query(
         collection(db, 'usersLinks'),
         where('userId', '==', user.uid)
       );
 
+      // Subscription to changes in user's links
       const unsubscribe = onSnapshot(userLinksQuery, (snapshot) => {
         const userLinks = snapshot.docs;
 
-        const html = userLinks
-          .map((doc) => {
-            const links = { ...doc.data(), docId: doc.id };
-            return createLinkHTML(links);
-          })
-          .join('');
+        // Generate HTML for links and insert into the DOM
+        const html = userLinks.map((doc) => {
+          const links = { ...doc.data(), docId: doc.id };
+          return createLinkHTML(links);
+        }).join('');
 
-        postedLinks.innerHTML =
-          html || '<h4 class="text-white">No links available</h4>';
-        setupEventListeners();
+        postedLinks.innerHTML = html || '<h4 class="text-white">No links available</h4>';
+        setupEventListeners(); // Set up event listeners for links
       });
 
-      setupLinks.unsubscribe = () => unsubscribe();
+      setupLinks.unsubscribe = () => unsubscribe(); // Function to cancel subscription
     } else {
-      dashboardContainer.classList.add('hidden');
+      dashboardContainer.classList.add('hidden'); // Hide dashboard if no authenticated user
       if (setupLinks.unsubscribe) {
         setupLinks.unsubscribe();
       }
     }
   });
 
-  if (dashboardToggle) {
-    dashboardToggle.addEventListener('click', () => {
-      dashboardContainer.classList.toggle('hidden');
-    });
-  }
-
-  if (featuresToggle) {
-    featuresToggle.addEventListener('click', () => {
-      featureContainer.classList.toggle('hidden'); // Toggle 'hidden' class on feature container
-      dashboardContainer.classList.add('hidden'); // Hide dashboard container when showing features
-    });
-  }
 };
 
-// Function to set up event listeners
+// Function to set up event listeners for links
 const setupEventListeners = () => {
-  document
-    .querySelectorAll('.dashboard__delete-button, .dashboard__copy-link-button')
-    .forEach((button) => {
-      button.addEventListener('click', async (event) => {
-        if (button.classList.contains('dashboard__delete-button')) {
-          const linkId = button.getAttribute('data-link-id');
-          await deleteLink(linkId);
-        } else {
-          const linkText = event.currentTarget.getAttribute('data-link-text');
-          copyToClipboard(linkText);
-          showMessage('Link copied to clipboard');
-        }
-      });
+  document.querySelectorAll('.dashboard__delete-button, .dashboard__copy-link-button').forEach((button) => {
+    button.addEventListener('click', async (event) => {
+      if (button.classList.contains('dashboard__delete-button')) {
+        const linkId = button.getAttribute('data-link-id');
+        await deleteLink(linkId); // Delete the link
+      } else {
+        const linkText = event.currentTarget.getAttribute('data-link-text');
+        copyToClipboard(linkText); // Copy link URL to clipboard
+        showMessage('Link copied to clipboard'); // Show success message
+      }
     });
+  });
 };
 
-// Function to delete link
+// Function to delete a link
 const deleteLink = async (linkId) => {
   try {
-    await deleteDoc(doc(db, 'usersLinks', linkId));
-    showMessage('Link deleted successfully');
+    await deleteDoc(doc(db, 'usersLinks', linkId)); // Delete the corresponding document
+    showMessage('Link deleted successfully'); // Show success message
   } catch (error) {
-    console.error('Error deleting link:', error);
-    showMessage('Error deleting link', 'error');
+    console.error('Error deleting link:', error); // Log any errors to console
+    showMessage('Error deleting link', 'error'); // Show error message
   }
 };
 
@@ -129,16 +127,8 @@ const copyToClipboard = (text) => {
   document.body.removeChild(textarea);
 };
 
-// Event listener for closing dashboard
-if (closeDashboardButton) {
-  closeDashboardButton.addEventListener('click', () => {
-    dashboardContainer.classList.add('hidden');
-  });
-}
+// Event listener to close the dashboard
+closeDashboardButton?.addEventListener('click', () => dashboardContainer.classList.add('hidden'));
 
-// Event listener for closing feature container
-if (closeFeatureButton) {
-  closeFeatureButton.addEventListener('click', () => {
-    featureContainer.classList.add('hidden'); // Hide feature container when close button is clicked
-  });
-}
+// Event listener to close the features container
+closeFeatureButton?.addEventListener('click', () => featureContainer.classList.add('hidden'));

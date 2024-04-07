@@ -13,7 +13,8 @@
     "tailwindcss": "^3.4.1"
   },
   "dependencies": {
+    "firebase": "^10.5.2",
     "flowbite": "^2.3.0"
   },
-  "description": ""
+  "description": "This a link shortening app using the Clean URI API. It was made with HTML, Tailwind CSS and Vanilla JS"
 }
