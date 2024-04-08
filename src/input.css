@@ -8,7 +8,6 @@
   font-weight: var(--Weights);
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  overflow-y: hidden;
 }
 
 
@@ -71,4 +70,46 @@ li {
   opacity: 1;
 }
 
+.header__navbar-container {
+  top: -160%;
+
+}
+
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+  transition: opacity 0.75s, visibility 0.75s;
+}
+
+.loader__hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader::after {
+  content: "";
+  width: 75px;
+  height: 75px;
+  border: 15px solid #dddddd;
+  border-top-color: #1d4ed8;
+  border-radius: 50%;
+  animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
 

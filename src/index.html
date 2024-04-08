@@ -9,7 +9,6 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&family=Poppins:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
       type="text/css"
@@ -25,7 +24,6 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" type="text/css" href="output.css" />
-
     <title>Clean Cut</title>
   </head>
   <body
@@ -36,26 +34,23 @@
       <nav
         class="header__nav flex w-auto mx-auto lg:w-full lg:justify-around lg:flex"
       >
+
         <!-- Navbar Container -->
-        <div
-          class="header__navbar-container p-3 shadow-2xl md:shadow-none bg-gray-800 text-gray-300 duration-500 md:static absolute md:min-h-fit right-4 top-[-160%] md:w-auto w-40 md:bg-transparent md:text-white flex items-center px-5 rounded-md z-10"
-        >
+        <div class="header__navbar-container p-3 shadow-2xl md:shadow-none bg-gray-800 text-gray-300 duration-500 md:static absolute md:min-h-fit right-4  md:w-auto w-40 md:bg-transparent md:text-white flex items-center px-5 rounded-md">
           <!-- Navbar Items -->
-          <ul
-            class="header__navbar-ul flex md:flex-row flex-col -top-2 md:top-1 md:items-center md:gap-[3vw] gap-6 relative md:-left-32 lg:-left-20"
-          >
-          <li class="header__nav-li">
-            <a class="header__features-button hover:text-gray-100 tracking-wide font-bold cursor-pointer z-30">Features</a>
-          </li>
-          <li class="header__nav-li">
-            <a class="header__dashboard-button hover:text-gray-100 tracking-wide font-bold opacity-0 transition-opacity duration-300 ease-in-out top-4 cursor-pointer z-30" id="log-out">Dashboard</a>
-          </li>
+          <ul class="header__navbar-ul flex md:flex-row flex-col -top-2 md:top-1 md:items-center md:gap-[3vw] gap-6 relative md:-left-32 lg:-left-20">
+            <li class="header__nav-li">
+              <button class="header__features-button hover:text-gray-100 tracking-wide font-bold cursor-pointer ">Features</button>
+            </li>
+            <li class="header__nav-li">
+              <button class="header__dashboard-button hover:text-gray-100 tracking-wide font-bold opacity-0 transition-opacity duration-300 ease-in-out top-4 cursor-pointer z-30" id="log-out">Dashboard</button>
+            </li>
           </ul>
         </div>
-
+        
         <!-- Logo Container -->
         <div
-          class="header__image-container w-32 md:w-40 lg:right-20 relative md:top-2"
+          class="header__image-container w-32 md:w-40 right-12 lg:right-20 relative md:top-2"
         >
           <img
             class="header__image-logo w-full h-full cursor-pointer scale-150"
@@ -191,6 +186,7 @@
                   type="password"
                   name="password"
                   id="signup-password"
+                  autocomplete="email"
                   placeholder="••••••••"
                   class="modal__input bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                   required=""
@@ -376,6 +372,7 @@
           </div>
         </div>
       </section>
+      <section class="loader"></section>
     </main>
   </body>
 </html>
