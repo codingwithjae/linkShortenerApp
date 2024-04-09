@@ -18,7 +18,6 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
     ></script>
-    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
     <script src="main.js" type="module"></script>
     <script
       src="https://kit.fontawesome.com/41e92b9e7c.js"
@@ -30,7 +29,7 @@
   </head>
   <body
     class="body__main-styles min-h-screen bg-cover bg-center bg-no-repeat overflow-x-hidden"
-    style="background-image: url('./assets/background.jpg')"
+    style="background-image: url('./assets/background.webp')"
   >
     <header class="header lg:-mt-4 flex justify-between">
       <nav
@@ -56,7 +55,7 @@
         >
           <img
             class="header__image-logo w-full h-full cursor-pointer scale-150"
-            src="./assets/logo.png"
+            src="./assets/logo.webp"
             alt="Logo of the app"
           />
         </div>
@@ -227,8 +226,9 @@
         >
           <img
             class="shortener__images--png h-fit w-fit"
-            src="./assets/string.png"
-            alt=""
+            src="./assets/string.webp"
+            alt="string png image" 
+            loading="lazy"
           />
         </div>
 
@@ -333,19 +333,9 @@
         >
           <img
             class="shortener__images--png h-fit w-fit"
-            src="./assets/string.png"
-            alt=""
-          />
-        </div>
-
-        <!-- Image 3 -->
-        <div
-          class="shortener__image-3 hidden md:block relative bottom-8 w-32 left-[600px] lg:hidden blur-sm"
-        >
-          <img
-            class="shortener__images--png h-fit w-fit"
-            src="./assets/string.png"
-            alt=""
+            src="./assets/string.webp"
+            alt="string png image" 
+            loading="lazy"
           />
         </div>
       </section>
