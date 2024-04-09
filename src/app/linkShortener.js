@@ -19,9 +19,11 @@ export function initializeLinkShortener() {
 
   // Check user authentication state
   onAuthStateChanged(auth, user => {
-    if (!user) {
-      showMessage('You can shorten links, but they won\'t be saved. Please sign in to save them.', 'warning');
-    }
+    setTimeout(() => {
+      if (!user) {
+        showMessage('You can shorten links, but they won\'t be saved. Please sign in to save them.', 'warning');
+      }
+    }, 4000); 
   });
 
   // Handle input change event

@@ -2,7 +2,6 @@
 import { auth, db } from "./app/firebase.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 import { getDocs, collection } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
 // Import functions from various modules
 import { initializeLinkShortener } from "./app/linkShortener.js";
 import { initializeMenuButton } from "./app/mobileMenuToggle.js";
