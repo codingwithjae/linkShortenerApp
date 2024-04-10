@@ -23,7 +23,7 @@ export function initializeLinkShortener() {
       if (!user) {
         showMessage('You can shorten links, but they won\'t be saved. Please sign in to save them.', 'warning');
       }
-    }, 4000); 
+    }, 3000); 
   });
 
   // Handle input change event

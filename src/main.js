@@ -10,6 +10,7 @@ import { loginCheck } from "./app/loginCheck.js";
 import "./app/signupForm.js";
 import "./app/logout.js";
 import "./app/googleLogin.js";
+import "./app/githubLogin.js";
 import { initializeModal } from "./app/formModalHandler.js";
 import { initializeLoader } from "./app/loadingSpinner.js";
 
