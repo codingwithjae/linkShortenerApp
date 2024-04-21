@@ -24,26 +24,27 @@ const featuresToggle = document.querySelector('.header__features-button'); // Fe
 
 // Function to create HTML for links
 const createLinkHTML = (links) => `
-<div class="dashboard__links-container list-group-item-action text-white flex flex-row items-center justify-between mb-4 mt-2">
-<button class="dashboard__copy-link-button relative right-4 md:right-12 transition duration-300 hover:text-gray-400" data-link-text="${links.shortUrl}">
-    <i class="fa-regular fa-copy"></i>
-</button>
-<div class="dashboard__tooltip-container">
-    <p class="text-gray-300 font-light transition duration-300 hover:text-gray-400 cursor-pointer">
-        ${truncateUrl(links.shortUrl)}
-    </p>
-    <span class="dashboard__tooltip bg-gray-800 text-white text-center rounded px-2 py-1 absolute bottom-full left-1/2 transform -translate-x-1/2 opacity-0 transition-opacity duration-300">
-        ${links.originalUrl}
+<div class="dashboard__links-container list-group-item-action text-white flex items-center justify-between mb-4 mt-2">
+    <button class="dashboard__copy-link-button relative transition duration-300 hover:text-gray-400" data-link-text="${links.shortUrl}">
+        <i class="fa-regular fa-copy"></i>
+    </button>
+    <div class="dashboard__tooltip-container relative px-6"> 
+        <p class="text-gray-300 font-light transition duration-300 hover:text-gray-400 cursor-pointer">
+            ${links.shortUrl}
+        </p>
+        <span class="dashboard__tooltip bg-gray-800 text-white text-center rounded px-2 py-1 absolute bottom-full left-1/2 transform -translate-x-1/2 opacity-0 transition-opacity duration-300">
+        ${truncateUrl(links.originalUrl)}
     </span>
+    </div>
+    <button class="dashboard__delete-button relative transition duration-300 hover:text-gray-400" data-link-id="${links.docId}">
+        <i class="fa-solid fa-delete-left"></i>
+    </button>
 </div>
-<button class="dashboard__delete-button absolute right-1 md:right-14 transition duration-300 hover:text-gray-400" data-link-id="${links.docId}">
-    <i class="fa-solid fa-delete-left"></i>
-</button>
-</div>
+
 `;
 
 // Function to truncate URL
-const truncateUrl = (url) => url.length > 30 ? `${url.substring(0, 30)}...` : url;
+const truncateUrl = (url) => url.length > 40 ? `${url.substring(0, 40)}...` : url;
 
 // Event listener to toggle dashboard visibility
 dashboardToggle?.addEventListener('click', () => dashboardContainer.classList.toggle('hidden'));

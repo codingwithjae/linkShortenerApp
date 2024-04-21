@@ -624,10 +624,6 @@ video {
   bottom: 2rem;
 }
 
-.bottom-full {
-  bottom: 100%;
-}
-
 .left-0 {
   left: 0px;
 }
@@ -642,10 +638,6 @@ video {
 
 .left-4 {
   left: 1rem;
-}
-
-.right-1 {
-  right: 0.25rem;
 }
 
 .right-12 {
@@ -682,6 +674,14 @@ video {
 
 .top-\[-6px\] {
   top: -6px;
+}
+
+.top-full {
+  top: 100%;
+}
+
+.bottom-full {
+  bottom: 100%;
 }
 
 .z-0 {
@@ -857,6 +857,11 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.-translate-y-full {
+  --tw-translate-y: -100%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .rotate-90 {
   --tw-rotate: 90deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -874,10 +879,6 @@ video {
 
 .cursor-pointer {
   cursor: pointer;
-}
-
-.flex-row {
-  flex-direction: row;
 }
 
 .flex-col {
@@ -930,6 +931,10 @@ video {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.whitespace-normal {
+  white-space: normal;
 }
 
 .rounded {
@@ -1061,11 +1066,6 @@ video {
   padding: 2rem;
 }
 
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
 .px-5 {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
@@ -1089,6 +1089,11 @@ video {
 .py-2\.5 {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .pb-4 {
@@ -1296,8 +1301,6 @@ li {
   position: absolute;
   z-index: 1;
   bottom: 125%;
-  left: 50%;
-  margin-left: -75px;
   opacity: 0;
   transition: opacity 0.3s;
   font-size: 12px;
@@ -1448,14 +1451,6 @@ li {
 
   .md\:right-1 {
     right: 0.25rem;
-  }
-
-  .md\:right-12 {
-    right: 3rem;
-  }
-
-  .md\:right-14 {
-    right: 3.5rem;
   }
 
   .md\:top-1 {
