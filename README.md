@@ -1,4 +1,4 @@
-# The Website
+# Welcome to Clean Cut
 
 This website is a full-stack link shortener. It emerges as a project aimed at understanding design systems, specifically applied to a link shortening service using an external API.
 
