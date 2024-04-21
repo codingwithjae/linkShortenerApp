@@ -13,6 +13,12 @@ This website is a full-stack link shortener. It emerges as a project aimed at un
 - There is a dashboard where users can copy or delete stored links from the database.
 
 
+## Future implementations
+
+- Statistics for the links.
+- Mobile App.
+
+
 ## Built With
 
 - HTML5.
