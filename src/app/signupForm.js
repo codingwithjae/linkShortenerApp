@@ -14,7 +14,11 @@ signupForm.addEventListener("submit", async (e) => {
 
   try {
     // Create user with email and password
-    const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
+    const userCredentials = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
 
     // Show welcome message
     showMessage("Welcome " + userCredentials.user.email);

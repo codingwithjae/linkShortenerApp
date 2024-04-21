@@ -2,12 +2,12 @@ import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9
 import { auth } from "./firebase.js";
 import { showMessage } from "./showMessage.js";
 
-const signInForm = document.querySelector("#signin-form"); 
+const signInForm = document.querySelector("#signin-form");
 
 signInForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const email = signInForm["signin-email"].value;
-  const password = signInForm["signin-password"].value; 
+  const password = signInForm["signin-password"].value;
 
   try {
     const userCredentials = await signInWithEmailAndPassword(
@@ -19,7 +19,6 @@ signInForm.addEventListener("submit", async (e) => {
 
     // show welcome message
     showMessage("Welcome " + userCredentials.user.email);
-
   } catch (error) {
     if (error.code === "auth/wrong-password") {
       showMessage("Wrong password", "error");

@@ -5,35 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"/>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <script src="main.js" type="module"></script>
-    <script src="https://kit.fontawesome.com/41e92b9e7c.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/41e92b9e7c.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" type="text/css" href="output.css" />
     <title>Clean Cut</title>
   </head>
   <body
-  class="body__main-styles min-h-screen bg-cover bg-center bg-no-repeat overflow-x-hidden flex flex-col justify-between"
+    class="body__main-styles min-h-screen bg-cover bg-center bg-no-repeat overflow-x-hidden flex flex-col justify-between"
   >
     <header class="header lg:-mt-4 flex justify-between">
       <nav
         class="header__nav flex w-auto mx-auto lg:w-full lg:justify-around lg:flex"
       >
-
         <!-- Navbar Container -->
-        <div class="header__navbar-container p-3 shadow-2xl md:shadow-none bg-gray-800 text-gray-300 duration-500 md:static absolute md:min-h-fit right-4  md:w-auto w-40 md:bg-transparent md:text-white flex items-center px-5 rounded-md z-20">
+        <div
+          class="header__navbar-container p-3 shadow-2xl md:shadow-none bg-gray-800 text-gray-300 duration-500 md:static absolute md:min-h-fit right-4 md:w-auto w-40 md:bg-transparent md:text-white flex items-center px-5 rounded-md z-20"
+        >
           <!-- Navbar Items -->
-          <ul class="header__navbar-ul flex md:flex-row flex-col -top-2 md:top-1 md:items-center md:gap-[3vw] gap-6 relative md:-left-32 lg:-left-20">
+          <ul
+            class="header__navbar-ul flex md:flex-row flex-col -top-2 md:top-1 md:items-center md:gap-[3vw] gap-6 relative md:-left-32 lg:-left-20"
+          >
             <li class="header__nav-li">
-              <button class="header__features-button hover:text-gray-100 tracking-wide font-bold cursor-pointer z-0">Features</button>
+              <button
+                class="header__features-button hover:text-gray-100 tracking-wide font-bold cursor-pointer z-0"
+              >
+                Features
+              </button>
             </li>
             <li class="header__nav-li">
-              <button class="header__dashboard-button hover:text-gray-100 tracking-wide font-bold opacity-0 transition-opacity duration-300 ease-in-out top-4 cursor-pointer" id="log-out">Dashboard</button>
+              <button
+                class="header__dashboard-button hover:text-gray-100 tracking-wide font-bold opacity-0 transition-opacity duration-300 ease-in-out top-4 cursor-pointer"
+                id="log-out"
+              >
+                Dashboard
+              </button>
             </li>
           </ul>
         </div>
-        
+
         <!-- Logo Container -->
         <div
           class="header__image-container w-32 md:w-40 relative right-12 md:right-0 md:top-2"
@@ -49,7 +74,6 @@
         <div
           class="header__button-container flex items-center gap-6 md:mr-14 relative md:left-40 lg:left-32"
         >
-
           <!-- Sign In Button -->
           <button
             id="header__signin-button"
@@ -71,146 +95,187 @@
           <button class="header__menu-button absolute left-28"></button>
         </div>
       </nav>
+    </header>
 
-      <section class="features hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 align-content-center z-20">
-        <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-gray-800 rounded-lg shadow-lg overflow-y-auto h-[31.25rem] w-[17.25rem] md:h-auto md:w-auto">
+    <main
+      class="shortener flex-col lg:ml-20 lg:mr-20 lg:mb-20 min-h-screen flex items-center justify-center"
+    >
+      <section
+        id="main__signup-modal"
+        aria-hidden="true"
+        class="main__signup-container hidden overflow-y-auto fixed h-full w-full top-0 left-0 justify-center bg-black bg-opacity-50 z-20"
+      >
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="modal__content bg-gray-800 rounded-lg shadow relative">
+            <div class="flex justify-end p-2 z-10">
+              <button
+                id="main__signup-modal-close"
+                type="button"
+                class="modal__close-btn text-white bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+
+            <form
+              id="signup-form"
+              class="modal__form space-y-6 px-6 lg:px-8 pb-4 sm:pb-6 xl:pb-8"
+              action="#"
+            >
+              <h3
+                class="modal__title text-sm font-medium text-gray-900 dark:text-white text-center"
+              >
+                Log in with your favorite social provider:
+              </h3>
+              <div class="flex flex-col items-center hidden">
+                <div class="w-full mb-4">
+                  <label
+                    for="signup-email"
+                    class="modal__label text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300"
+                    autocomplete="email"
+                    >Your email</label
+                  >
+                  <input
+                    type="email"
+                    name="email"
+                    id="signup-email"
+                    class="modal__input bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                    placeholder="name@company.com"
+                    required=""
+                    autocomplete="email"
+                  />
+                </div>
+
+                <div class="w-full mb-4">
+                  <label
+                    for="signup-password"
+                    class="modal__label text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300"
+                    >Your password</label
+                  >
+                  <input
+                    type="password"
+                    name="password"
+                    id="signup-password"
+                    autocomplete="email"
+                    placeholder="••••••••"
+                    class="modal__input bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                    required=""
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                id="signInButton"
+                class="modal__submit--button w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hidden"
+              >
+                Log In
+              </button>
+              <button
+                type="button"
+                class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                id="googleLogin"
+              >
+                <i class="fab fa-google mr-2"></i> Google
+              </button>
+
+              <button
+                type="button"
+                class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                id="gitHubLogin"
+              >
+                <i class="fab fa-github mr-2"></i> GitHub
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="features hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 align-content-center z-20"
+      >
+        <div
+          class="features__container fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-gray-800 rounded-lg shadow-lg overflow-y-auto h-[31.25rem] w-[80vw] md:h-auto md:w-[42.25rem]"
+        >
           <!-- Close Button -->
-          <button class="features__close-button absolute flex flex-end top-2 right-3" aria-label="Close">
+          <button
+            class="features__close-button absolute flex flex-end top-2 right-3"
+            aria-label="Close"
+          >
             <i class="fa-solid fa-times text-gray-200 hover:text-gray-500"></i>
           </button>
-        
+
           <!-- Features Content -->
-          <div class="features__ul-container flex flex-col items-center justify-center p-8 ">
+          <div
+            class="features__ul-container flex flex-col items-center justify-center p-8"
+          >
             <h2 class="text-3xl font-semibold text-white mb-2">Features</h2>
             <div class="features__links-list p-4">
-              <ul class="features__navbar-ul flex flex-col gap-2 mt-2 cursor-pointer">
+              <ul
+                class="features__navbar-ul flex flex-col gap-2 mt-2 cursor-pointer w-60 md:w-auto"
+              >
                 <li class="features__nav-li">
-                  <p class="text-gray-200 tracking-wide font-bold">Lightweight Link Shortening:</p>
-                  <p class="text-gray-200 mt-4">Easily shorten long URLs with a simple and intuitive interface.</p>
+                  <p class="text-gray-200 tracking-wide font-bold">
+                    Lightweight Link Shortening:
+                  </p>
+                  <p class="text-gray-200 mt-4">
+                    Easily shorten long URLs with a simple and intuitive
+                    interface.
+                  </p>
                 </li>
                 <li class="features__nav-li">
-                  <p class="text-gray-200 hover:text-gray-100 tracking-wide font-bold">No Registration Required:</p>
-                  <p class="text-gray-200  hover:text-gray-100 mt-4">Start using the app immediately without the hassle of creating an account.</p>
+                  <p
+                    class="text-gray-200 hover:text-gray-100 tracking-wide font-bold"
+                  >
+                    No Registration Required:
+                  </p>
+                  <p class="text-gray-200 hover:text-gray-100 mt-4">
+                    Start using the app immediately without the hassle of
+                    creating an account.
+                  </p>
                 </li>
                 <li class="features__nav-li">
-                  <p class="text-gray-200 hover:text-gray-100 tracking-wide font-bold">Optional Registration for Link Saving:</p>
-                  <p class="text-gray-200 hover:text-gray-100 mt-4">Registering on the platform unlocks the ability to save shortened links. Access a personalized dashboard where all saved links are stored. View and manage saved links conveniently at any time.</p>
+                  <p
+                    class="text-gray-200 hover:text-gray-100 tracking-wide font-bold"
+                  >
+                    Optional Registration for Link Saving:
+                  </p>
+                  <p class="text-gray-200 hover:text-gray-100 mt-4">
+                    Registering on the platform unlocks the ability to save
+                    shortened links. Access a personalized dashboard where all
+                    saved links are stored. View and manage saved links
+                    conveniently at any time.
+                  </p>
                 </li>
                 <li class="features__nav-li">
-                  <p class="text-gray-200 hover:text-gray-100 tracking-wide font-bold">Usage Limitation:</p>
-                  <p class="text-gray-200 hover:text-gray-100 mt-4">App usage is limited to two link shortening requests per second per ID. Additionally, for the first request, there will be a short delay while the link is being shortened.</p>
+                  <p
+                    class="text-gray-200 hover:text-gray-100 tracking-wide font-bold"
+                  >
+                    Usage Limitation:
+                  </p>
+                  <p class="text-gray-200 hover:text-gray-100 mt-4">
+                    App usage is limited to two link shortening requests per
+                    second per ID. Additionally, for the first request, there
+                    will be a short delay while the link is being shortened.
+                  </p>
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </section>
-    </header>
 
-    <section
-      id="main__signup-modal"
-      aria-hidden="true"
-      class="main__signup-container hidden overflow-y-auto fixed h-full w-full top-0 left-0 justify-center bg-black bg-opacity-50 z-20"
-    >
-      <div class="absolute inset-0 flex items-center justify-center">
-        <div class="modal__content bg-gray-800 rounded-lg shadow relative">
-          <div class="flex justify-end p-2 z-10">
-            <button
-              id="main__signup-modal-close"
-              type="button"
-              class="modal__close-btn text-white bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-            >
-              <svg
-                class="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </button>
-          </div>
-
-          <form
-            id="signup-form"
-            class="modal__form space-y-6 px-6 lg:px-8 pb-4 sm:pb-6 xl:pb-8"
-            action="#"
-          >
-            <h3
-              class="modal__title text-sm font-medium text-gray-900 dark:text-white text-center"
-            >
-            Log in with your favorite social provider:
-            </h3>
-            <div class="flex flex-col items-center hidden">
-              <div class="w-full mb-4">
-                <label
-                for="signup-email"
-                class="modal__label text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300"
-                autocomplete="email"
-              >Your email</label>
-                <input
-                  type="email"
-                  name="email"
-                  id="signup-email"
-                  class="modal__input bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                  placeholder="name@company.com"
-                  required=""
-                  autocomplete="email"
-                />
-              </div>
-
-              <div class="w-full mb-4">
-                <label
-                  for="signup-password"
-                  class="modal__label text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300"
-                  >Your password</label
-                >
-                <input
-                  type="password"
-                  name="password"
-                  id="signup-password"
-                  autocomplete="email"
-                  placeholder="••••••••"
-                  class="modal__input bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                  required=""
-                />
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              id="signInButton"
-              class="modal__submit--button w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hidden"
-            >
-              Log In
-            </button>
-            <button
-            type="button"
-            class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            id="googleLogin"
-          >
-            <i class="fab fa-google mr-2"></i> Google
-          </button>
-          
-          <button
-            type="button"
-            class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            id="gitHubLogin"
-          >
-            <i class="fab fa-github mr-2"></i> GitHub
-          </button>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <main
-      class="shortener flex-col lg:ml-20 lg:mr-20 lg:mb-20 min-h-screen flex items-center justify-center"
-    >
       <section
         class="shortener__content-container h-auto relative lg:top-[-4.375rem]"
       >
@@ -221,7 +286,7 @@
           <img
             class="shortener__images--png h-fit w-fit"
             src="./assets/string.webp"
-            alt="string png image" 
+            alt="string png image"
             loading="lazy"
           />
         </div>
@@ -284,7 +349,7 @@
                 >
                   <!-- Copy Icon -->
                   <div
-                    class="shortener__form-icon cursor-pointer text-white relative top-[-6px] left-4 z-20"
+                    class="shortener__form-icon cursor-pointer text-white relative top-[-6px] left-4 z-10"
                     title="Copy link"
                   >
                     <i class="fas fa-copy"></i>
@@ -322,11 +387,13 @@
         </div>
 
         <!-- Image 2 -->
-        <div class="shortener__image-2 hidden absolute bottom-8 right-8 w-32 max-w-[calc(100% - 40px)] lg:block blur-sm">
+        <div
+          class="shortener__image-2 hidden absolute bottom-8 right-8 w-32 max-w-[calc(100% - 40px)] lg:block blur-sm"
+        >
           <img
             class="shortener__images--png h-fit w-fit"
             src="./assets/string.webp"
-            alt="string png image" 
+            alt="string png image"
             loading="lazy"
           />
         </div>
@@ -351,7 +418,9 @@
           <div
             class="dashboard__ul-container flex align-content-center flex-col items-center justify-center p-8 shadow overflow-y-auto overflow-x-hidden"
           >
-            <h2 class="text-3xl font-semibold text-white mb-8 cursor-pointer">Dashboard</h2>
+            <h2 class="text-3xl font-semibold text-white mb-8 cursor-pointer">
+              Dashboard
+            </h2>
             <div class="dashboard__links-list text-sm md:text-lg"></div>
           </div>
         </div>
@@ -360,10 +429,3 @@
     </main>
   </body>
 </html>
-
-
- 
-
-
-
-
