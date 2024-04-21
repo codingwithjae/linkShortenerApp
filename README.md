@@ -6,6 +6,12 @@ This website is a full-stack link shortener. It emerges as a project aimed at un
   <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeXVoZTUzdm1sb3JvYW9wZHpwNG1yYzg4YzQ2NjNwc2wzbnJjOTJuMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SxAdVS7PPgjuDxQcGH/giphy.gif" alt="Gif"/>
 </p>
 
+## Features
+
+- Users can shorten any link and save it in a Firestore database.
+- Users can log in using Google or GitHub.
+- There is a dashboard where users can copy or delete stored links from the database.
+
 
 ## Built With
 
