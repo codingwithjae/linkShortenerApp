@@ -9,7 +9,7 @@ export const loginCheck = (user) => {
     // If logged in, show logged-out buttons and hide logged-in buttons
     loggedOutButtonOut.forEach((link) => (link.style.display = 'block'));
     loggedOutLinks.forEach((link) => (link.style.display = 'none'));
-    logOutButtonIn.classList.remove('hidden'); // Remove 'hidden' class to show log-out button
+    logOutButtonIn.style.visibility = 'visible'; // Show log-out button
     logOutButtonIn.classList.add('opacity-100'); // Add class to adjust opacity
     formModalClose.classList.add('hidden'); // Hide the sign-up modal
    
@@ -18,7 +18,7 @@ export const loginCheck = (user) => {
     // If not logged in, hide logged-out buttons and show logged-in buttons
     loggedOutButtonOut.forEach((link) => (link.style.display = 'none'));
     loggedOutLinks.forEach((link) => (link.style.display = 'block'));
-    logOutButtonIn.classList.add('hidden'); // Hide log-out button
+    logOutButtonIn.style.visibility = 'hidden'; // Hide log-out button
 
   }
 };

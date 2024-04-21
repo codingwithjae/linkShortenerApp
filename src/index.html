@@ -28,8 +28,7 @@
     <title>Clean Cut</title>
   </head>
   <body
-    class="body__main-styles min-h-screen bg-cover bg-center bg-no-repeat overflow-x-hidden"
-    style="background-image: url('./assets/background.webp')"
+  class="body__main-styles min-h-screen bg-cover bg-center bg-no-repeat overflow-x-hidden flex flex-col justify-between"
   >
     <header class="header lg:-mt-4 flex justify-between">
       <nav
@@ -37,24 +36,24 @@
       >
 
         <!-- Navbar Container -->
-        <div class="header__navbar-container p-3 shadow-2xl md:shadow-none bg-gray-800 text-gray-300 duration-500 md:static absolute md:min-h-fit right-4  md:w-auto w-40 md:bg-transparent md:text-white flex items-center px-5 rounded-md">
+        <div class="header__navbar-container p-3 shadow-2xl md:shadow-none bg-gray-800 text-gray-300 duration-500 md:static absolute md:min-h-fit right-4  md:w-auto w-40 md:bg-transparent md:text-white flex items-center px-5 rounded-md z-10">
           <!-- Navbar Items -->
           <ul class="header__navbar-ul flex md:flex-row flex-col -top-2 md:top-1 md:items-center md:gap-[3vw] gap-6 relative md:-left-32 lg:-left-20">
             <li class="header__nav-li">
               <button class="header__features-button hover:text-gray-100 tracking-wide font-bold cursor-pointer">Features</button>
             </li>
             <li class="header__nav-li">
-              <button class="header__dashboard-button lg:absolute hover:text-gray-100 tracking-wide font-bold opacity-0 transition-opacity duration-300 ease-in-out top-4 cursor-pointer" id="log-out">Dashboard</button>
+              <button class="header__dashboard-button hover:text-gray-100 tracking-wide font-bold opacity-0 transition-opacity duration-300 ease-in-out top-4 cursor-pointer" id="log-out">Dashboard</button>
             </li>
           </ul>
         </div>
         
         <!-- Logo Container -->
         <div
-          class="header__image-container w-32 md:w-40 right-12 lg:right-20 relative md:top-2"
+          class="header__image-container w-32 md:w-40 relative right-12 md:right-0 md:top-2"
         >
           <img
-            class="header__image-logo w-full h-full cursor-pointer scale-150"
+            class="header__image-logo w-full h-full cursor-pointer scale-150 relative lg:right-24"
             src="./assets/logo.webp"
             alt="Logo of the app"
           />
@@ -75,7 +74,7 @@
 
           <!-- Log Out Button -->
           <button
-            class="logged-in hidden text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center md:w-28 md:text-lg md:absolute md:right-1 md:mt-3"
+            class="logged-in hidden text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center w-24 md:w-28 md:text-lg md:absolute md:right-1 md:mt-3"
             type="button"
             id="log-out"
           >
@@ -127,7 +126,7 @@
       aria-hidden="true"
       class="main__signup-container hidden overflow-y-auto fixed h-full w-full top-0 left-0 justify-center bg-black bg-opacity-50 z-20"
     >
-      <div class="relative mt-24 w-96 max-w-md px-4 md:mx-auto">
+    <div class="absolute inset-0 flex items-center justify-center">
         <div class="modal__content bg-gray-800 rounded-lg shadow relative">
           <div class="flex justify-end p-2 z-10">
             <button
@@ -156,11 +155,11 @@
             action="#"
           >
             <h3
-              class="modal__title text-xl font-medium text-gray-900 dark:text-white text-center"
+              class="modal__title text-sm font-medium text-gray-900 dark:text-white text-center"
             >
-              Sign up to our platform
+            Log in with your favorite social provider:
             </h3>
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center hidden">
               <div class="w-full mb-4">
                 <label
                 for="signup-email"
@@ -199,7 +198,7 @@
             <button
               type="submit"
               id="signInButton"
-              class="modal__submit--button w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="modal__submit--button w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hidden"
             >
               Log In
             </button>
@@ -337,9 +336,7 @@
         </div>
 
         <!-- Image 2 -->
-        <div
-          class="shortener__image-2 hidden relative bottom-8 w-32 left-[1200px] lg:block blur-sm"
-        >
+        <div class="shortener__image-2 hidden absolute bottom-8 right-8 w-32 max-w-[calc(100% - 40px)] lg:block blur-sm">
           <img
             class="shortener__images--png h-fit w-fit"
             src="./assets/string.webp"
