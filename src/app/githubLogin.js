@@ -19,9 +19,6 @@ import {
         // Sign in with the GitHub popup window
         const credentials = await signInWithPopup(auth, provider);
   
-        // Log credentials
-        console.log(credentials);
-  
         // Show a welcome message with the user's display name
         showMessage('Welcome ' + credentials.user.displayName + '!');
       } catch (error) {

@@ -1,4 +1,3 @@
-import Toastify from 'toastify-js'
 
 export function showMessage(message, type = 'success') {
   // Configure Toastify options

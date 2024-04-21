@@ -16,9 +16,6 @@ googleButton.addEventListener('click', async () => {
   try {
     // Sign in with Google popup
     const credentials = await signInWithPopup(auth, provider);
-    
-    // Log credentials
-    console.log(credentials);
 
     // Show welcome message with user's display name
     showMessage('Welcome ' + credentials.user.displayName);

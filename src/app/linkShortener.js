@@ -80,7 +80,6 @@ export function initializeLinkShortener() {
     }
 
     const data = await response.json();
-    console.log('Short link', data.result_url);
     
     // Show success message
     showMessage('Link created successfully');
@@ -98,8 +97,7 @@ export function initializeLinkShortener() {
       };
 
       try {
-        const docRef = await addDoc(collection(db, 'usersLinks'), linkData);
-        console.log('Document written with ID:', docRef.id);
+        await addDoc(collection(db, 'usersLinks'), linkData);
       } catch (error) {
         console.error('Error adding document:', error);
       }
