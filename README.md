@@ -1,6 +1,6 @@
 # Welcome to Clean Cut
 
-This website is a full-stack link shortener. It emerges as a project aimed at understanding design systems, specifically applied to a link shortening service using an external API.
+This website is a full-stack link shortener. 
 
 <p align="center">
   <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeXVoZTUzdm1sb3JvYW9wZHpwNG1yYzg4YzQ2NjNwc2wzbnJjOTJuMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SxAdVS7PPgjuDxQcGH/giphy.gif" alt="Gif"/>
